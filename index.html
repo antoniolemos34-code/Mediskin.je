@@ -15,20 +15,23 @@
   <meta property="og:title" content="Mediskin.je — Aesthetics, Laser & Injectables | Jersey" />
   <meta property="og:description" content="A calm, premium clinic experience with WhatsApp-first booking." />
   <meta property="og:url" content="https://mediskin.je/" />
+  <!-- Optional: add a real share image -->
+  <!-- <meta property="og:image" content="https://mediskin.je/og.jpg" /> -->
 
   <style>
     :root{
       --bg:#fbf8f4;
       --paper:#ffffff;
       --ink:#121417;
-      --muted:#62676f;
+      --muted:#636a73;
       --line:rgba(18,20,23,.10);
 
       --sand:#f3ece4;
       --sand2:#eadfce;
 
       --accent:#b58b55;
-      --accentInk:#1b1f2a;
+      --accent2:#a27b49;
+      --accentSoft:rgba(181,139,85,.12);
 
       --wa:#25D366;
 
@@ -38,7 +41,7 @@
       --shadow:0 18px 70px rgba(18,20,23,.10);
       --shadow2:0 12px 34px rgba(18,20,23,.10);
 
-      --max:1160px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
@@ -57,9 +60,9 @@
     .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto;}
     :focus-visible{outline:3px solid rgba(181,139,85,.35); outline-offset:3px; border-radius:14px}
 
-    /* ===== Topbar ===== */
+    /* Topbar */
     .topbar{
-      background:rgba(243,236,228,.65);
+      background:rgba(243,236,228,.68);
       border-bottom:1px solid var(--line);
       backdrop-filter: blur(10px);
     }
@@ -70,12 +73,12 @@
       color:rgba(18,20,23,.80);
       font-size:13px;
     }
-    .topbar .left{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .topbar .left{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:6px 10px;
       border:1px solid rgba(18,20,23,.10);
-      background:rgba(255,255,255,.65);
+      background:rgba(255,255,255,.70);
       border-radius:999px;
       font-weight:900;
     }
@@ -84,16 +87,16 @@
       display:inline-flex; align-items:center; justify-content:center;
       width:36px; height:36px; border-radius:999px;
       border:1px solid rgba(18,20,23,.10);
-      background:rgba(255,255,255,.75);
+      background:rgba(255,255,255,.80);
       transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
     .iconBtn:hover{transform:translateY(-1px); box-shadow:var(--shadow2); background:#fff}
     .icon{width:18px; height:18px; display:block; fill:rgba(18,20,23,.88)}
 
-    /* ===== Header ===== */
+    /* Header */
     header{
       position:sticky; top:0; z-index:60;
-      background:rgba(251,248,244,.80);
+      background:rgba(251,248,244,.86);
       border-bottom:1px solid var(--line);
       backdrop-filter: blur(12px);
     }
@@ -104,15 +107,23 @@
     }
     .brand{display:flex; align-items:center; gap:12px; min-width: 240px;}
     .mark{
-      width:40px; height:40px; border-radius:14px;
+      width:42px; height:42px; border-radius:14px;
       background: linear-gradient(135deg, rgba(181,139,85,.95), rgba(234,223,206,.90));
       box-shadow: var(--shadow2);
       border: 1px solid rgba(18,20,23,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 55%);
+      transform: rotate(18deg);
     }
     .brand strong{font-size:15.5px; letter-spacing:.2px;}
     .brand span{display:block; margin-top:-2px; font-size:12.5px; color:var(--muted);}
 
-    .links{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    .links{display:flex; gap:6px; align-items:center; flex-wrap:wrap}
     .links a{
       font-size:13.5px;
       color:rgba(18,20,23,.78);
@@ -120,7 +131,8 @@
       border-radius:12px;
       font-weight:900;
     }
-    .links a:hover{background:rgba(181,139,85,.10); color:rgba(18,20,23,.95)}
+    .links a:hover{background:var(--accentSoft); color:rgba(18,20,23,.95)}
+    .links a.active{background:rgba(181,139,85,.16); color:rgba(18,20,23,.95)}
 
     .cta{display:flex; gap:10px; align-items:center}
     .btn{
@@ -150,6 +162,7 @@
       color:#06130B;
       font-weight:1000;
     }
+    .btnSmall{padding:9px 12px; border-radius:12px; font-size:13px}
 
     .burger{display:none}
     .mobileMenu{display:none; padding:0 0 14px}
@@ -164,7 +177,7 @@
     .mobileMenu a:hover{color:rgba(18,20,23,.95)}
     .mobileMenu.open{display:block}
 
-    /* ===== Hero ===== */
+    /* HERO */
     .hero{position:relative; padding: 22px 0 0;}
     .heroFrame{
       border:1px solid var(--line);
@@ -172,25 +185,26 @@
       overflow:hidden;
       box-shadow: var(--shadow);
       background:#0f1116;
-      min-height: 560px;
+      min-height: 600px;
       position:relative;
     }
     .heroBg{
       position:absolute; inset:0;
       background:
-        linear-gradient(90deg, rgba(18,20,23,.80) 0%, rgba(18,20,23,.35) 45%, rgba(18,20,23,.08) 75%, rgba(18,20,23,.00) 100%),
-        linear-gradient(180deg, rgba(18,20,23,.15), rgba(18,20,23,.72)),
+        linear-gradient(92deg, rgba(18,20,23,.86) 0%, rgba(18,20,23,.40) 45%, rgba(18,20,23,.12) 74%, rgba(18,20,23,.00) 100%),
+        linear-gradient(180deg, rgba(18,20,23,.12), rgba(18,20,23,.78)),
         url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
       transform: scale(1.02);
+      filter:saturate(.98);
     }
     .heroInner{
       position:relative;
       display:grid;
-      grid-template-columns: 1.08fr .92fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:18px;
-      padding: 44px;
+      padding: 48px;
       align-items:end;
-      min-height: 560px;
+      min-height: 600px;
     }
     .heroCopy{color:#fff; max-width: 66ch;}
     .kicker{
@@ -201,7 +215,7 @@
       background: rgba(255,255,255,.10);
       backdrop-filter: blur(10px);
       font-size: 12.5px;
-      color: rgba(255,255,255,.88);
+      color: rgba(255,255,255,.90);
       font-weight:950;
     }
     .kdot{
@@ -212,35 +226,52 @@
     }
     h1{
       margin: 16px 0 12px;
-      font-size: clamp(34px, 4.2vw, 58px);
+      font-size: clamp(34px, 4.3vw, 60px);
       line-height:1.02;
       letter-spacing:-.9px;
     }
-    .lead{margin:0 0 18px; color: rgba(255,255,255,.85); font-size: 16.2px;}
+    .lead{margin:0 0 18px; color: rgba(255,255,255,.86); font-size: 16.2px;}
     .heroActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
 
     .heroCard{
-      background: rgba(251,248,244,.92);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 20px;
+      background: rgba(251,248,244,.94);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
       padding: 18px;
-      box-shadow: 0 18px 70px rgba(0,0,0,.22);
+      box-shadow: 0 18px 70px rgba(0,0,0,.24);
       backdrop-filter: blur(12px);
     }
     .heroCard h3{margin:0 0 8px; font-size: 15.5px; letter-spacing:-.2px; color: rgba(18,20,23,.95);}
-    .heroCard p{margin:0; color: rgba(18,20,23,.70); font-size: 13.8px;}
+    .heroCard p{margin:0; color: rgba(18,20,23,.72); font-size: 13.8px;}
 
     .miniGrid{display:grid; grid-template-columns: 1fr; gap:10px; margin-top: 12px;}
     .mini{
       border:1px solid rgba(18,20,23,.10);
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.88);
       border-radius: 16px;
       padding: 12px;
     }
     .mini b{display:block; font-size:13px}
     .mini span{display:block; margin-top:4px; font-size:12.8px; color:rgba(18,20,23,.68)}
 
-    /* ===== Sections ===== */
+    /* Trust strip */
+    .trust{
+      margin-top:14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      color:rgba(255,255,255,.88);
+    }
+    .trust .chip{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      border-radius:999px;
+      font-weight:900;
+      font-size:12.5px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Sections */
     section{padding: 56px 0}
     .sectionHead{
       display:flex; justify-content:space-between; align-items:flex-end;
@@ -259,11 +290,23 @@
     }
     .pad{padding:18px}
 
-    /* Split (welcome) */
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(181,139,85,.28);
+      background: rgba(181,139,85,.10);
+      font-weight: 950;
+      color: rgba(18,20,23,.86);
+      margin-bottom: 10px;
+    }
+
+    /* Split */
     .split{grid-column: span 12; display:grid; grid-template-columns: 1fr 1fr; gap:14px}
     .media{
       border-radius: var(--radius);
-      min-height: 380px;
+      min-height: 420px;
       border:1px solid var(--line);
       box-shadow: var(--shadow2);
       background: #efe7dd center/cover no-repeat;
@@ -275,26 +318,15 @@
       content:"";
       position:absolute; inset:0;
       background: radial-gradient(700px 320px at 20% 20%, rgba(181,139,85,.18), transparent 60%),
-                  linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.10));
+                  linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.14));
       pointer-events:none;
     }
     .copy{
       border:1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       box-shadow: var(--shadow2);
       padding: 22px;
-    }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size: 12px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(181,139,85,.28);
-      background: rgba(181,139,85,.10);
-      font-weight: 950;
-      color: rgba(18,20,23,.86);
-      margin-bottom: 10px;
     }
     .copy h3{margin:0 0 10px; font-size: 20px; letter-spacing:-.25px;}
     .copy p{margin:0; color: var(--muted); font-size: 14px}
@@ -315,12 +347,13 @@
       flex:0 0 auto;
     }
     .li b{display:block; font-size: 13.5px}
-    .li span{display:block; color: rgba(18,20,23,.68); font-size: 13.3px; margin-top: 2px}
+    .li span{display:block; color: rgba(18,20,23,.70); font-size: 13.3px; margin-top: 2px}
 
-    /* ===== Treatment tiles (tap image => popup) ===== */
-    .tile{grid-column: span 4; display:flex; flex-direction:column; min-height: 360px}
+    /* Service tiles */
+    .tile{grid-column: span 4; display:flex; flex-direction:column; min-height: 390px; transition:.18s ease}
+    .tile:hover{box-shadow: var(--shadow2); transform: translateY(-1px)}
     .tileMedia{
-      height: 190px;
+      height: 200px;
       background:#efe7dd center/cover no-repeat;
       border-bottom:1px solid var(--line);
       position:relative;
@@ -330,7 +363,7 @@
     .tileMedia:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.28));
+      background: linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.30));
       pointer-events:none;
     }
     .tileLabel{
@@ -346,21 +379,13 @@
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
     }
-    .tileLabel small{
-      display:block;
-      font-weight: 800;
-      opacity:.92;
-      font-size: 12px;
-    }
+    .tileLabel small{display:block; font-weight: 800; opacity:.92; font-size: 12px;}
     .tileLabel span{
-      display:inline-flex;
-      width:28px; height:28px;
-      border-radius: 10px;
+      display:inline-flex; width:30px; height:30px; border-radius: 11px;
       align-items:center; justify-content:center;
       background: rgba(255,255,255,.20);
       font-weight: 1000;
     }
-
     .tile h3{margin:0 0 6px; font-size: 16.5px; letter-spacing:-.2px}
     .tile p{margin:0; color: var(--muted); font-size: 13.7px}
     .go{
@@ -371,16 +396,51 @@
       color: rgba(181,139,85,.98);
     }
     .go:hover{text-decoration: underline; text-decoration-color: rgba(181,139,85,.35)}
-    .tile:hover{box-shadow: var(--shadow2); transform: translateY(-1px); transition:.18s ease}
-    .tile{transition:.18s ease}
 
-    /* ===== Testimonials ===== */
+    /* Reviews */
     .quote{grid-column: span 6; padding:18px}
     .quote h4{margin:0 0 8px; font-size: 15.5px; letter-spacing:-.15px}
     .quote p{margin:0; color: var(--muted); font-size: 13.8px}
     .who{margin-top: 10px; font-weight: 900; font-size: 12.5px; color: rgba(18,20,23,.78)}
 
-    /* ===== CTA band ===== */
+    /* FAQ */
+    .faq{grid-column: span 12}
+    .faqGrid{display:grid; gap:10px}
+    .qa{
+      border:1px solid rgba(18,20,23,.10);
+      background: rgba(255,255,255,.94);
+      border-radius: 16px;
+      overflow:hidden;
+    }
+    .q{
+      width:100%;
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      padding:14px 14px;
+      background:transparent;
+      border:0;
+      cursor:pointer;
+      font-weight:950;
+      font-size:14px;
+      text-align:left;
+    }
+    .q span{color:rgba(18,20,23,.92)}
+    .chev{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(18,20,23,.10);
+      display:grid; place-items:center;
+      background: rgba(243,236,228,.55);
+      font-weight:1000;
+    }
+    .a{
+      padding:0 14px 14px;
+      color:var(--muted);
+      font-size:13.8px;
+      display:none;
+    }
+    .qa.open .a{display:block}
+    .qa.open .chev{background: rgba(181,139,85,.14)}
+
+    /* CTA band */
     .ctaBand{
       border:1px solid var(--line);
       border-radius: var(--radius2);
@@ -394,21 +454,21 @@
     .ctaBand h3{margin:0; font-size: 20px; letter-spacing:-.25px}
     .ctaBand p{margin:6px 0 0; color: var(--muted); font-size: 13.8px}
 
-    /* ===== Contact ===== */
+    /* Contact columns */
     .contactLeft{grid-column: span 7;}
     .contactRight{grid-column: span 5;}
 
-    /* ===== Footer ===== */
+    /* Footer */
     footer{
       padding: 36px 0 48px;
       border-top: 1px solid var(--line);
-      background: rgba(243,236,228,.55);
+      background: rgba(243,236,228,.58);
     }
     .foot{display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap;}
-    .foot small{display:block; margin-top:6px; color: var(--muted); max-width: 72ch}
+    .foot small{display:block; margin-top:6px; color: var(--muted); max-width: 74ch}
     .foot a{ text-decoration: underline; text-decoration-color: rgba(181,139,85,.35)}
 
-    /* ===== WhatsApp floating ===== */
+    /* WhatsApp floating */
     .waFloat{
       position:fixed; right:16px; bottom:16px; z-index:99;
       display:flex; align-items:center; gap:10px;
@@ -432,7 +492,7 @@
       letter-spacing:.3px;
     }
 
-    /* ===== Modal (tap image => popup) ===== */
+    /* Modal */
     .modalOverlay{
       position:fixed; inset:0; z-index:200;
       background: rgba(18,20,23,.55);
@@ -443,9 +503,9 @@
     }
     .modalOverlay.open{display:flex}
     .modal{
-      width:min(720px, 100%);
+      width:min(760px, 100%);
       border-radius: 22px;
-      background: rgba(255,255,255,.96);
+      background: rgba(255,255,255,.97);
       border: 1px solid rgba(255,255,255,.30);
       box-shadow: 0 30px 90px rgba(0,0,0,.28);
       overflow:hidden;
@@ -458,23 +518,15 @@
         radial-gradient(900px 260px at 10% 10%, rgba(181,139,85,.18), transparent 60%),
         rgba(243,236,228,.35);
     }
-    .modalTop h3{
-      margin:0;
-      font-size: 18px;
-      letter-spacing:-.2px;
-    }
-    .modalTop p{
-      margin:6px 0 0;
-      color: rgba(18,20,23,.70);
-      font-size: 13.6px;
-    }
+    .modalTop h3{margin:0; font-size: 18px; letter-spacing:-.2px;}
+    .modalTop p{margin:6px 0 0; color: rgba(18,20,23,.72); font-size: 13.6px;}
     .closeBtn{
       display:inline-flex;
       width:38px; height:38px;
       align-items:center; justify-content:center;
       border-radius: 14px;
       border: 1px solid rgba(18,20,23,.12);
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.85);
       cursor:pointer;
       font-weight: 1000;
     }
@@ -484,7 +536,7 @@
       gap: 12px;
     }
     .modalImg{
-      height: 220px;
+      height: 240px;
       border-radius: 18px;
       border: 1px solid rgba(18,20,23,.10);
       background: #efe7dd center/cover no-repeat;
@@ -503,7 +555,7 @@
     @media (max-width: 980px){
       .links{display:none}
       .burger{display:inline-flex}
-      .heroInner{grid-template-columns: 1fr; padding: 22px; min-height: 600px}
+      .heroInner{grid-template-columns: 1fr; padding: 22px; min-height: 640px}
       .split{grid-template-columns: 1fr}
       .tile{grid-column: span 12}
       .quote{grid-column: span 12}
@@ -555,27 +607,29 @@
         </a>
 
         <nav class="links" aria-label="Primary">
-          <a href="#welcome">Welcome</a>
-          <a href="#treatments">Treatments</a>
+          <a href="#welcome">About</a>
+          <a href="#services">Services</a>
           <a href="#approach">Approach</a>
           <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <div class="cta">
           <a class="btn btnGhost" href="mailto:info@mediskin.je" id="emailBtn">info@mediskin.je</a>
           <button class="btn burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-          <a class="btn btnWA" id="waHeader" href="#">Book on WhatsApp</a>
+          <a class="btn btnWA" id="waHeader" href="#">Book Consultation</a>
         </div>
       </div>
 
       <div class="mobileMenu" id="mobileMenu">
-        <a href="#welcome">Welcome</a>
-        <a href="#treatments">Treatments</a>
+        <a href="#welcome">About</a>
+        <a href="#services">Services</a>
         <a href="#approach">Approach</a>
         <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a id="waMobile" href="#">Book on WhatsApp</a>
+        <a id="waMobile" href="#">Book Consultation</a>
       </div>
     </div>
   </header>
@@ -589,15 +643,21 @@
         <div class="heroInner">
           <div class="heroCopy">
             <div class="kicker"><span class="kdot"></span> Calm. Premium. Results-led. • Women & men • All skin tones</div>
-            <h1>Enhance, rejuvenate & restore skin confidence — with instant WhatsApp booking.</h1>
+            <h1>Skin confidence, refined — with instant WhatsApp booking.</h1>
             <p class="lead">
-              A clinic-style experience without the noise. Clear categories, professional guidance, and a simple booking flow.
+              A clinic-style experience without the noise. Clear service categories, professional guidance, and a simple booking flow.
             </p>
 
             <div class="heroActions">
-              <a class="btn btnAccent" href="#treatments">View treatments</a>
-              <a class="btn btnWA" id="waHero" href="#">Book on WhatsApp</a>
-              <a class="btn" href="#approach">Our approach</a>
+              <a class="btn btnAccent" href="#services">View services</a>
+              <a class="btn btnWA" id="waHero" href="#">Book Consultation</a>
+              <a class="btn" href="#approach">How it works</a>
+            </div>
+
+            <div class="trust" aria-label="Trust highlights">
+              <span class="chip">✓ Consultation-led</span>
+              <span class="chip">✓ Subtle, balanced results</span>
+              <span class="chip">✓ Professional aftercare guidance</span>
             </div>
           </div>
 
@@ -610,21 +670,23 @@
               <div class="mini"><b>Clear categories</b><span>Aesthetics, laser & injectables — easy navigation.</span></div>
               <div class="mini"><b>Supportive guidance</b><span>We help you choose what fits your goal.</span></div>
             </div>
+
+            <div style="height:12px"></div>
+            <a class="btn btnWA" id="waHeroCard" href="#" style="width:100%;">Message on WhatsApp</a>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- WELCOME -->
+    <!-- ABOUT / WELCOME -->
     <section id="welcome">
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2>Welcome</h2>
-            <p>A professional, calm clinic experience — with treatments organised clearly and a straightforward booking flow.</p>
+            <h2>About Mediskin</h2>
+            <p>Professional, calm, clinic-first care — designed to help you choose and book confidently.</p>
           </div>
-          <a class="btn btnWA" id="waWelcome" href="#">Book on WhatsApp</a>
+          <a class="btn btnWA" id="waWelcome" href="#">Book Consultation</a>
         </div>
 
         <div class="grid">
@@ -632,27 +694,27 @@
             <div class="media" id="welcomeMedia"
                  role="button" tabindex="0"
                  data-modal-title="Consultation & Skin Goals"
-                 data-modal-desc="Tell us your concern and your goal. We’ll recommend the most appropriate category and confirm availability."
+                 data-modal-desc="Tell us your concern and your goal. We’ll recommend the most appropriate option and confirm availability."
                  data-modal-img="welcome"
-                 aria-label="Tap to view treatment info"></div>
+                 aria-label="Tap to view info"></div>
 
             <div class="copy">
-              <div class="tag">Mediskin.je</div>
+              <div class="tag">Consultation-led</div>
               <h3>Personalised care, focused on your goals</h3>
               <p>
-                Tell us what you want to improve and your preferred timing. We’ll guide you to the most appropriate option
-                and confirm availability via WhatsApp.
+                We start with what you want to improve. You’ll get clear recommendations, realistic expectations,
+                and a simple booking route — via WhatsApp.
               </p>
 
               <div class="bullets">
-                <div class="li"><span class="dot"></span><div><b>Clear plan</b><span>Start with your goal → choose category → book.</span></div></div>
-                <div class="li"><span class="dot"></span><div><b>Professional tone</b><span>No overpromises, no hype — just clarity.</span></div></div>
-                <div class="li"><span class="dot"></span><div><b>Quick contact</b><span>WhatsApp is the fastest way to get an answer.</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Clear plan</b><span>Goal → suitability → treatment → aftercare.</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Professional tone</b><span>No hype — just clarity and guidance.</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Fast replies</b><span>WhatsApp is the quickest way to get help.</span></div></div>
               </div>
 
               <div style="height:14px"></div>
               <div class="heroActions">
-                <a class="btn btnAccent" href="#treatments">Explore treatments</a>
+                <a class="btn btnAccent" href="#services">Explore services</a>
                 <a class="btn btnWA" id="waWelcome2" href="#">Message on WhatsApp</a>
               </div>
             </div>
@@ -662,15 +724,15 @@
       </div>
     </section>
 
-    <!-- TREATMENTS -->
-    <section id="treatments">
+    <!-- SERVICES -->
+    <section id="services">
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2>Treatments</h2>
-            <p>Tap the image to see the treatment type + description. Tap “Enquire” to message us on WhatsApp.</p>
+            <h2>Services</h2>
+            <p>Tap the image to see details. Tap “Enquire” to message us on WhatsApp.</p>
           </div>
-          <a class="btn btnWA" id="waTreatments" href="#">Book on WhatsApp</a>
+          <a class="btn btnWA" id="waServices" href="#">Book Consultation</a>
         </div>
 
         <div class="grid">
@@ -683,10 +745,7 @@
                  data-modal-img="aesthetics"
                  aria-label="Tap for Aesthetics info">
               <div class="tileLabel">
-                <div>
-                  Aesthetics
-                  <small>Tap for details</small>
-                </div>
+                <div>Aesthetics <small>Tap for details</small></div>
                 <span>↗</span>
               </div>
             </div>
@@ -710,10 +769,7 @@
                  data-modal-img="laser"
                  aria-label="Tap for Laser info">
               <div class="tileLabel">
-                <div>
-                  Laser
-                  <small>Tap for details</small>
-                </div>
+                <div>Laser <small>Tap for details</small></div>
                 <span>↗</span>
               </div>
             </div>
@@ -737,23 +793,33 @@
                  data-modal-img="inject"
                  aria-label="Tap for Injectables info">
               <div class="tileLabel">
-                <div>
-                  Injectables
-                  <small>Tap for details</small>
-                </div>
+                <div>Injectables <small>Tap for details</small></div>
                 <span>↗</span>
               </div>
             </div>
             <div class="pad">
               <div class="tag">Injectables</div>
-              <h3>Injectables</h3>
-              <p>Subtle results — guided by consultation, not trends.</p>
+              <h3>Subtle, balanced injectables</h3>
+              <p>Guided by consultation — tailored to your face, not trends.</p>
               <a class="go" href="#"
                  data-wa="Hi Mediskin.je — I’d like to enquire about Injectables. Area/goal: _____. Preferred day/time: _____.">
                 Enquire on WhatsApp →
               </a>
             </div>
           </article>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="ctaBand">
+          <div>
+            <h3>Not sure what you need?</h3>
+            <p>Message your goal + photos (optional). We’ll guide you to the best starting point.</p>
+          </div>
+          <div class="heroActions">
+            <a class="btn btnWA" id="waGuide" href="#">Get guidance on WhatsApp</a>
+            <a class="btn" href="#faq">Read FAQ</a>
+          </div>
         </div>
       </div>
     </section>
@@ -772,7 +838,7 @@
         <div class="grid">
           <div class="card quote">
             <h4>1) Goal-first</h4>
-            <p>Tell us what you want to improve — we’ll guide you to the best category.</p>
+            <p>Tell us what you want to improve — we’ll guide you to the best route.</p>
           </div>
           <div class="card quote">
             <h4>2) Clear suitability</h4>
@@ -784,7 +850,7 @@
           </div>
           <div class="card quote">
             <h4>4) Maintain & review</h4>
-            <p>If you’re aiming for long-term goals, we help you stay consistent.</p>
+            <p>Long-term goals? We help you stay consistent and realistic.</p>
           </div>
         </div>
 
@@ -796,7 +862,7 @@
             <p>Message: treatment/concern + preferred day/time + notes (optional).</p>
           </div>
           <div class="heroActions">
-            <a class="btn btnWA" id="waApproach" href="#">Book on WhatsApp</a>
+            <a class="btn btnWA" id="waApproach" href="#">Book Consultation</a>
             <a class="btn" href="mailto:info@mediskin.je" id="emailApproach">Email</a>
           </div>
         </div>
@@ -839,13 +905,64 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>FAQ</h2>
+            <p>Quick answers — if you still have doubts, message us on WhatsApp.</p>
+          </div>
+          <a class="btn btnWA" id="waFaq" href="#">Message on WhatsApp</a>
+        </div>
+
+        <div class="grid">
+          <div class="card faq">
+            <div class="pad">
+              <div class="faqGrid" id="faqGrid">
+                <div class="qa">
+                  <button class="q" type="button"><span>Do I need a consultation first?</span><span class="chev">+</span></button>
+                  <div class="a">For most treatments, a consultation (or suitability check) is recommended to confirm goals, expectations and timing.</div>
+                </div>
+                <div class="qa">
+                  <button class="q" type="button"><span>How do I book?</span><span class="chev">+</span></button>
+                  <div class="a">WhatsApp is the fastest route: send your concern + preferred day/time + any notes (photos optional).</div>
+                </div>
+                <div class="qa">
+                  <button class="q" type="button"><span>Can I send photos?</span><span class="chev">+</span></button>
+                  <div class="a">Yes (optional). Photos can help guide you to the right category and set expectations before booking.</div>
+                </div>
+                <div class="qa">
+                  <button class="q" type="button"><span>Do you treat all skin tones?</span><span class="chev">+</span></button>
+                  <div class="a">We aim for inclusive care. Suitability depends on the treatment type and your goals — message us and we’ll guide you.</div>
+                </div>
+              </div>
+
+              <div style="height:14px"></div>
+              <div class="ctaBand">
+                <div>
+                  <h3>Still unsure?</h3>
+                  <p>Tell us your goal and we’ll recommend the best starting point.</p>
+                </div>
+                <div class="heroActions">
+                  <a class="btn btnWA" id="waStillUnsure" href="#">Get guidance</a>
+                  <a class="btn btnAccent" href="#services">View services</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <div class="wrap">
         <div class="sectionHead">
           <div>
             <h2>Contact</h2>
-            <p>Use WhatsApp for fastest replies. Facebook & Instagram are also linked.</p>
+            <p>Use WhatsApp for fastest replies. Instagram & Facebook are also linked.</p>
           </div>
         </div>
 
@@ -861,6 +978,8 @@
               <div class="bullets" style="margin-top:14px;">
                 <div class="li"><span class="dot"></span><div><b>Phone</b><span id="phoneLine">07700 801000</span></div></div>
                 <div class="li"><span class="dot"></span><div><b>Email</b><span><a id="emailLine" href="mailto:info@mediskin.je">info@mediskin.je</a></span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Address</b><span id="addressLine">Jersey, Channel Islands</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Hours</b><span id="hoursLine">Mon–Sat: 9:00–18:00</span></div></div>
                 <div class="li"><span class="dot"></span><div><b>Social</b><span><a id="igLine" href="#" target="_blank" rel="noopener">Instagram</a> • <a id="fbLine" href="#" target="_blank" rel="noopener">Facebook</a></span></div></div>
               </div>
 
@@ -881,7 +1000,7 @@
                 Tap WhatsApp and send this message (edit the blanks):
               </p>
               <div style="height:12px"></div>
-              <div class="li" style="background:rgba(255,255,255,.95)">
+              <div class="li" style="background:rgba(255,255,255,.97)">
                 <span class="dot"></span>
                 <div>
                   <b>Message</b>
@@ -890,7 +1009,7 @@
               </div>
 
               <div style="height:12px"></div>
-              <a class="btn btnWA" id="waTemplate" href="#" style="width:100%;">Book on WhatsApp</a>
+              <a class="btn btnWA" id="waTemplate" href="#" style="width:100%;">Book Consultation</a>
               <div style="height:10px"></div>
               <a class="btn" id="emailContactBtn" href="mailto:info@mediskin.je" style="width:100%;">Email: info@mediskin.je</a>
             </div>
@@ -902,7 +1021,7 @@
 
   <a class="waFloat" id="waFloat" href="#" aria-label="Book on WhatsApp">
     <span class="waIcon">WA</span>
-    Book on WhatsApp
+    Book Consultation
   </a>
 
   <!-- Modal -->
@@ -910,15 +1029,15 @@
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modalTop">
         <div>
-          <h3 id="modalTitle">Treatment</h3>
+          <h3 id="modalTitle">Service</h3>
           <p id="modalDesc">Description</p>
         </div>
         <button class="closeBtn" id="modalClose" type="button" aria-label="Close">✕</button>
       </div>
       <div class="modalBody">
-        <div class="modalImg" id="modalImg" aria-label="Treatment image"></div>
+        <div class="modalImg" id="modalImg" aria-label="Service image"></div>
         <div class="modalActions">
-          <a class="btn btnWA" id="modalWa" href="#">Book on WhatsApp</a>
+          <a class="btn btnWA" id="modalWa" href="#">Book Consultation</a>
           <a class="btn" id="modalEmail" href="mailto:info@mediskin.je">Email</a>
           <a class="btn btnAccent" id="modalIG" href="#" target="_blank" rel="noopener">Instagram</a>
           <a class="btn" id="modalFB" href="#" target="_blank" rel="noopener">Facebook</a>
@@ -935,27 +1054,32 @@
           Premium, calm, results-led clinic feel — Aesthetics, Laser & Injectables. WhatsApp-first booking.
           <br><br>
           Images are from Unsplash and can be used for commercial projects under the Unsplash License.
+          <br>
+          <span style="opacity:.9">This site content is informational and does not replace professional medical advice.</span>
         </small>
       </div>
       <div>
-        <small>© <span id="year"></span> Mediskin.je • <a href="mailto:info@mediskin.je">info@mediskin.je</a></small>
+        <small>© <span id="year"></span> Mediskin.je • <a href="mailto:info@mediskin.je" id="emailFoot">info@mediskin.je</a></small>
       </div>
     </div>
   </footer>
 
   <script>
-    // ========= CONTACT CONFIG (EDIT HERE if needed) =========
+    // ========= CONTACT CONFIG (EDIT ONLY HERE) =========
     const CONTACT = {
+      brand: "Mediskin.je",
       phoneDisplay: "07700 801000",
       whatsappNumberE164: "+447700801000",
       email: "info@mediskin.je",
 
-      // Put the REAL pages here (right now it's generic - replace with your page links)
+      addressLine: "Jersey, Channel Islands",
+      hoursLine: "Mon–Sat: 9:00–18:00",
+
       instagramUrl: "https://www.instagram.com/",
       facebookUrl:  "https://www.facebook.com/"
     };
 
-    // ========= IMAGES (already set) =========
+    // ========= IMAGES =========
     const IMAGES = {
       welcome:    "https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=2000&q=80",
       aesthetics: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=2000&q=80",
@@ -964,7 +1088,7 @@
     };
 
     const DEFAULT_MESSAGE =
-      "Hi Mediskin.je — I’d like to book. Treatment/concern: _____. Preferred day/time: _____. Notes: _____. Thank you.";
+      `Hi ${CONTACT.brand} — I’d like to book. Treatment/concern: _____. Preferred day/time: _____. Notes: _____. Thank you.`;
 
     // ========= Helpers =========
     const clean = (s) => (s || "").replace(/[^\d+]/g, "");
@@ -989,17 +1113,21 @@
       el.rel = "noopener";
     };
 
+    // Keeps overlay gradient + image together (your previous version lost the gradient)
     const setBg = (el, url) => {
       if (!el) return;
-      el.style.background =
+      const overlay =
         "radial-gradient(900px 320px at 12% 18%, rgba(181,139,85,.20), transparent 60%)," +
-        "linear-gradient(135deg, rgba(18,20,23,.10), rgba(243,236,228,.55))";
+        "linear-gradient(135deg, rgba(18,20,23,.12), rgba(243,236,228,.55))";
+
+      el.style.backgroundImage = overlay;
+      el.style.backgroundSize = "cover";
+      el.style.backgroundPosition = "center";
+      el.style.backgroundRepeat = "no-repeat";
+
       const img = new Image();
       img.onload = () => {
-        el.style.backgroundImage = `url('${url}')`;
-        el.style.backgroundSize = "cover";
-        el.style.backgroundPosition = "center";
-        el.style.backgroundRepeat = "no-repeat";
+        el.style.backgroundImage = `${overlay}, url('${url}')`;
       };
       img.referrerPolicy = "no-referrer";
       img.src = url;
@@ -1009,12 +1137,16 @@
     document.getElementById("phonePill").textContent = "📞 " + CONTACT.phoneDisplay;
     document.getElementById("phoneLine").textContent = CONTACT.phoneDisplay;
 
-    ["emailPill","emailBtn","emailLine","emailApproach","emailContactBtn","modalEmail"].forEach(id => {
+    document.getElementById("addressLine").textContent = CONTACT.addressLine;
+    document.getElementById("hoursLine").textContent = CONTACT.hoursLine;
+
+    ["emailPill","emailBtn","emailLine","emailApproach","emailContactBtn","modalEmail","emailFoot"].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       el.href = `mailto:${CONTACT.email}`;
       if (id === "emailBtn") el.textContent = CONTACT.email;
       if (id === "emailLine") el.textContent = CONTACT.email;
+      if (id === "emailFoot") el.textContent = CONTACT.email;
       if (id === "emailPill") el.textContent = "✉️ " + CONTACT.email;
     });
 
@@ -1033,11 +1165,15 @@
     bindWa("waHeader", DEFAULT_MESSAGE);
     bindWa("waMobile", DEFAULT_MESSAGE);
     bindWa("waHero", DEFAULT_MESSAGE);
-    bindWa("waWelcome", "Hi Mediskin.je — I’d like to book a consultation. Goal: _____. Preferred day/time: _____.");
-    bindWa("waWelcome2", "Hi Mediskin.je — my goal is: _____. Can you recommend the best option? Preferred day/time: _____.");
-    bindWa("waTreatments", DEFAULT_MESSAGE);
+    bindWa("waHeroCard", DEFAULT_MESSAGE);
+    bindWa("waWelcome", `Hi ${CONTACT.brand} — I’d like to book a consultation. Goal: _____. Preferred day/time: _____.`);
+    bindWa("waWelcome2", `Hi ${CONTACT.brand} — my goal is: _____. Can you recommend the best option? Preferred day/time: _____.`);
+    bindWa("waServices", DEFAULT_MESSAGE);
+    bindWa("waGuide", `Hi ${CONTACT.brand} — I’m not sure what to choose. My goal is: _____. Preferred day/time: _____.`);
     bindWa("waApproach", DEFAULT_MESSAGE);
-    bindWa("waReviews", "Hi Mediskin.je — quick question: _____.");
+    bindWa("waReviews", `Hi ${CONTACT.brand} — quick question: _____.`);
+    bindWa("waFaq", `Hi ${CONTACT.brand} — I have a question: _____.`);
+    bindWa("waStillUnsure", `Hi ${CONTACT.brand} — my goal is: _____. Can you guide me?`);
     bindWa("waContact", DEFAULT_MESSAGE);
     bindWa("waTemplate", DEFAULT_MESSAGE);
     bindWa("waFloat", DEFAULT_MESSAGE);
@@ -1069,7 +1205,7 @@
       }));
     }
 
-    // ========= Modal logic (tap image => popup) =========
+    // ========= Modal logic =========
     const overlay = document.getElementById("modalOverlay");
     const closeBtn = document.getElementById("modalClose");
     const titleEl = document.getElementById("modalTitle");
@@ -1078,12 +1214,11 @@
     const waEl    = document.getElementById("modalWa");
 
     const openModal = ({title, desc, imgKey}) => {
-      titleEl.textContent = title || "Treatment";
+      titleEl.textContent = title || "Service";
       descEl.textContent  = desc  || "";
       setBg(imgEl, IMAGES[imgKey] || IMAGES.welcome);
 
-      // WhatsApp message contextual
-      const msg = `Hi Mediskin.je — I’m interested in ${title}. My goal is: _____. Preferred day/time: _____.`;
+      const msg = `Hi ${CONTACT.brand} — I’m interested in ${title}. My goal is: _____. Preferred day/time: _____.`;
       waEl.href = toWa(msg);
       waEl.target = "_blank";
       waEl.rel = "noopener";
@@ -1104,23 +1239,48 @@
     overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.classList.contains("open")) closeModal(); });
 
-    // Make any element with modal data open the modal
-    const modalTriggers = document.querySelectorAll("[data-modal-title][data-modal-desc][data-modal-img]");
-    modalTriggers.forEach(el => {
+    document.querySelectorAll("[data-modal-title][data-modal-desc][data-modal-img]").forEach(el => {
       const handler = () => openModal({
         title: el.getAttribute("data-modal-title"),
         desc: el.getAttribute("data-modal-desc"),
         imgKey: el.getAttribute("data-modal-img")
       });
-
       el.addEventListener("click", handler);
       el.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handler(); }
       });
     });
 
+    // ========= FAQ accordion =========
+    document.querySelectorAll(".qa .q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const box = btn.closest(".qa");
+        const isOpen = box.classList.toggle("open");
+        const chev = btn.querySelector(".chev");
+        if (chev) chev.textContent = isOpen ? "−" : "+";
+      });
+    });
+
     // year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ========= JSON-LD (basic) =========
+    const ld = {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": CONTACT.brand,
+      "url": "https://mediskin.je/",
+      "telephone": CONTACT.phoneDisplay,
+      "email": CONTACT.email,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jersey"
+      }
+    };
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
   </script>
 </body>
-            </html>
+</html>
