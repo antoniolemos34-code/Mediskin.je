@@ -3,786 +3,950 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#FF2D8D" />
+  <meta name="theme-color" content="#f3ece4" />
   <meta name="color-scheme" content="light" />
 
-  <title>Mediskin.je — Laser, Aesthetics, Injectables & Weight Loss | Jersey</title>
-  <meta name="description" content="Clean, modern aesthetics clinic in Jersey. Laser, skin treatments, injectables, facials, weight loss, hair loss support. Book instantly via WhatsApp." />
+  <title>Mediskin.je — Aesthetics, Laser & Injectables | Jersey</title>
+  <meta name="description" content="Premium, calm, results-led clinic feel. Aesthetics, laser and injectables. Book instantly via WhatsApp." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://mediskin.je/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mediskin.je — Laser, Aesthetics, Injectables & Weight Loss | Jersey" />
-  <meta property="og:description" content="Clean, uncomplicated but premium. Book instantly via WhatsApp." />
+  <meta property="og:title" content="Mediskin.je — Aesthetics, Laser & Injectables | Jersey" />
+  <meta property="og:description" content="A calm, premium clinic experience with WhatsApp-first booking." />
   <meta property="og:url" content="https://mediskin.je/" />
 
   <style>
     :root{
-      --bg:#ffffff;
-      --ink:#0B0F19;
-      --muted:#5A6476;
-      --line:rgba(11,15,25,.10);
-      --card:#ffffff;
+      /* Skin-company-ish: warm neutrals + ink */
+      --bg:#fbf8f4;
+      --paper:#ffffff;
+      --ink:#121417;
+      --muted:#62676f;
+      --line:rgba(18,20,23,.10);
+
+      --sand:#f3ece4;
+      --sand2:#eadfce;
+      --accent:#b58b55;     /* warm gold/biscuit */
+      --accent2:#1b1f2a;    /* deep ink */
+      --wa:#25D366;
 
       --radius:18px;
       --radius2:26px;
+      --shadow:0 18px 70px rgba(18,20,23,.10);
+      --shadow2:0 12px 34px rgba(18,20,23,.10);
 
-      --shadow: 0 18px 70px rgba(11,15,25,.10);
-      --shadow2: 0 12px 34px rgba(11,15,25,.10);
-
-      --max: 1140px;
-
-      --accent:#FF2D8D;
-      --accent2:#FF6BB7;
-      --wa:#25D366;
-
-      --glass: rgba(255,255,255,.72);
+      --max:1160px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
       background:
-        radial-gradient(1200px 650px at 12% -15%, rgba(255,45,141,.12), transparent 60%),
-        radial-gradient(1000px 520px at 90% -25%, rgba(255,107,183,.10), transparent 60%),
+        radial-gradient(1100px 540px at 12% -10%, rgba(181,139,85,.16), transparent 60%),
+        radial-gradient(980px 520px at 92% -15%, rgba(234,223,206,.55), transparent 60%),
         var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
       line-height:1.55;
     }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ width:min(var(--max), calc(100% - 44px)); margin:0 auto; }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto;}
 
-    /* Focus accessibility (melhora UX) */
-    :focus-visible{ outline: 3px solid rgba(255,45,141,.35); outline-offset: 3px; border-radius: 14px; }
+    :focus-visible{outline:3px solid rgba(181,139,85,.35); outline-offset:3px; border-radius:14px}
+
+    /* ===== Top bar ===== */
+    .topbar{
+      background:rgba(243,236,228,.65);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0;
+      gap:12px;
+      color:rgba(18,20,23,.80);
+      font-size:13px;
+    }
+    .topbar .left{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border:1px solid rgba(18,20,23,.10);
+      background:rgba(255,255,255,.65);
+      border-radius:999px;
+      font-weight:800;
+    }
+    .social{display:flex; gap:8px; align-items:center}
+    .iconBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:999px;
+      border:1px solid rgba(18,20,23,.10);
+      background:rgba(255,255,255,.75);
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .iconBtn:hover{transform:translateY(-1px); box-shadow:var(--shadow2); background:#fff}
+    .icon{
+      width:18px; height:18px; display:block;
+      fill:rgba(18,20,23,.88);
+    }
 
     /* ===== Header ===== */
     header{
       position:sticky; top:0; z-index:60;
-      background: rgba(255,255,255,.82);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+      background:rgba(251,248,244,.80);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(12px);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      gap:16px;
-      padding: 14px 0;
+      gap:14px;
+      padding:14px 0;
     }
-    .brand{ display:flex; align-items:center; gap:10px; min-width: 220px; }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
     .mark{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, var(--accent), rgba(255,45,141,.65));
+      width:40px; height:40px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(181,139,85,.95), rgba(234,223,206,.90));
       box-shadow: var(--shadow2);
+      border: 1px solid rgba(18,20,23,.10);
     }
-    .brand strong{ font-size:15.5px; letter-spacing:.1px; }
-    .brand span{ display:block; font-size:12px; color:var(--muted); margin-top:-2px; }
+    .brand strong{
+      font-size:15.5px; letter-spacing:.2px;
+    }
+    .brand span{
+      display:block; margin-top:-2px;
+      font-size:12.5px; color:var(--muted);
+    }
 
-    .links{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .links{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
     .links a{
       font-size:13.5px;
-      color: rgba(11,15,25,.78);
-      padding: 8px 10px;
-      border-radius: 12px;
+      color:rgba(18,20,23,.78);
+      padding:9px 10px;
+      border-radius:12px;
+      font-weight:800;
     }
-    .links a:hover{ background: rgba(255,45,141,.08); color: rgba(11,15,25,.95); }
+    .links a:hover{background:rgba(181,139,85,.10); color:rgba(18,20,23,.95)}
 
-    .cta{ display:flex; gap:10px; align-items:center; }
+    .cta{display:flex; gap:10px; align-items:center}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: 0 1px 0 rgba(11,15,25,.04);
-      font-weight: 800;
-      font-size: 13.5px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid rgba(18,20,23,.12);
+      background:#fff;
+      box-shadow: 0 1px 0 rgba(18,20,23,.05);
+      font-weight:900;
+      font-size:13.5px;
       cursor:pointer;
-      user-select:none;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
-      white-space: nowrap;
+      white-space:nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow2); }
-    .btn:active{ transform: translateY(0px); box-shadow: 0 10px 26px rgba(11,15,25,.10); }
-
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow2)}
+    .btn:active{transform:translateY(0); box-shadow:0 10px 26px rgba(18,20,23,.12)}
+    .btnGhost{background:transparent; box-shadow:none}
     .btnAccent{
-      background: var(--accent);
-      color:#fff;
-      border-color: rgba(255,45,141,.30);
+      background: linear-gradient(135deg, rgba(181,139,85,.95), rgba(234,223,206,.95));
+      border-color: rgba(18,20,23,.08);
+      color: rgba(18,20,23,.92);
     }
     .btnWA{
-      background: var(--wa);
+      background: rgba(37,211,102,.95);
+      border-color: rgba(0,0,0,.10);
       color:#06130B;
-      border-color: rgba(0,0,0,.08);
-      font-weight: 950;
-    }
-    .btnGhost{
-      background: transparent;
-      box-shadow:none;
+      font-weight:1000;
     }
 
-    .burger{ display:none; }
-    .mobileMenu{ display:none; padding: 0 0 14px; }
+    .burger{display:none}
+    .mobileMenu{display:none; padding:0 0 14px}
     .mobileMenu a{
       display:block;
-      padding: 12px 0;
-      border-top: 1px solid var(--line);
-      color: rgba(11,15,25,.78);
-      font-weight: 900;
-      font-size: 13.5px;
+      padding:12px 0;
+      border-top:1px solid var(--line);
+      color:rgba(18,20,23,.78);
+      font-weight:950;
+      font-size:13.5px;
     }
-    .mobileMenu a:hover{ color: rgba(11,15,25,.95); }
-    .mobileMenu a#waMobile{
-      margin-top: 6px;
-      color: var(--accent);
-    }
+    .mobileMenu a:hover{color:rgba(18,20,23,.95)}
+    .mobileMenu.open{display:block}
 
     /* ===== Hero ===== */
-    .hero{ padding: 48px 0 18px; }
-    .heroGrid{
+    .hero{
+      position:relative;
+      padding: 28px 0 0;
+    }
+    .heroFrame{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background:#0f1116;
+      min-height: 540px;
+      position:relative;
+    }
+    .heroBg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(18,20,23,.78) 0%, rgba(18,20,23,.35) 45%, rgba(18,20,23,.10) 75%, rgba(18,20,23,.00) 100%),
+        linear-gradient(180deg, rgba(18,20,23,.20), rgba(18,20,23,.72)),
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+      transform: scale(1.02);
+    }
+    .heroInner{
+      position:relative;
       display:grid;
       grid-template-columns: 1.08fr .92fr;
-      gap: 18px;
-      align-items:stretch;
+      gap:18px;
+      padding: 44px;
+      align-items:end;
+      min-height: 540px;
     }
-    .heroCard{
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      background:
-        radial-gradient(900px 450px at 10% 5%, rgba(255,45,141,.10), transparent 60%),
-        #fff;
-      box-shadow: var(--shadow);
-      padding: 30px;
-      position:relative;
-      overflow:hidden;
-      min-height: 460px;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute;
-      inset:-60px -110px auto auto;
-      width: 360px; height: 360px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,45,141,.22), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(255,107,183,.18), transparent 60%);
-      pointer-events:none;
-      opacity:.95;
+    .heroCopy{
+      color:#fff;
+      max-width: 64ch;
     }
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.86);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
       font-size: 12.5px;
-      color: rgba(11,15,25,.78);
+      color: rgba(255,255,255,.88);
+      font-weight:900;
     }
     .kdot{
-      width: 8px; height:8px; border-radius: 99px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(255,45,141,.18);
+      width:8px; height:8px; border-radius:99px;
+      background: rgba(181,139,85,.95);
+      box-shadow: 0 0 0 6px rgba(181,139,85,.18);
+      flex:0 0 auto;
     }
     h1{
-      margin: 16px 0 10px;
-      font-size: clamp(30px, 4.1vw, 48px);
-      line-height: 1.06;
-      letter-spacing: -0.8px;
+      margin: 16px 0 12px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.02;
+      letter-spacing:-.9px;
     }
     .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 15.8px;
-      max-width: 58ch;
+      margin:0 0 18px;
+      color: rgba(255,255,255,.85);
+      font-size: 16.2px;
     }
-    .heroActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
+    .heroActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
 
+    .heroCard{
+      background: rgba(251,248,244,.92);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 18px 70px rgba(0,0,0,.22);
+      backdrop-filter: blur(12px);
+    }
+    .heroCard h3{
+      margin:0 0 8px;
+      font-size: 15.5px;
+      letter-spacing:-.2px;
+      color: rgba(18,20,23,.95);
+    }
+    .heroCard p{
+      margin:0;
+      color: rgba(18,20,23,.70);
+      font-size: 13.8px;
+    }
     .miniGrid{
-      margin-top: 18px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top: 12px;
     }
     .mini{
-      border: 1px solid var(--line);
+      border:1px solid rgba(18,20,23,.10);
+      background: rgba(255,255,255,.85);
       border-radius: 16px;
-      background: rgba(255,45,141,.035);
-      padding: 12px 12px;
+      padding: 12px;
     }
-    .mini b{ display:block; font-size: 13px; }
-    .mini span{ display:block; margin-top:4px; font-size: 12.5px; color: var(--muted); }
-
-    .heroMedia{
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-      min-height: 460px;
-      background: #12070d;
-    }
-    .heroMedia .bg{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(255,45,141,.14), rgba(11,15,25,.58)),
-        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-      transform: scale(1.02);
-    }
-    .heroMedia .badge{
-      position:absolute; left: 18px; right:18px; bottom: 18px;
-      padding: 16px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.12);
-      color:#fff;
-      backdrop-filter: blur(10px);
-    }
-    .heroMedia .badge strong{ display:block; font-size: 14px; letter-spacing:.2px; }
-    .heroMedia .badge span{ display:block; margin-top:6px; font-size: 12.8px; opacity:.92; }
+    .mini b{display:block; font-size:13px}
+    .mini span{display:block; margin-top:4px; font-size:12.8px; color:rgba(18,20,23,.68)}
 
     /* ===== Sections ===== */
-    section{ padding: 48px 0; }
+    section{padding: 56px 0}
     .sectionHead{
-      display:flex; justify-content:space-between; align-items:flex-end; gap: 12px;
-      margin-bottom: 16px;
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap: 14px; margin-bottom: 18px;
     }
     .sectionHead h2{
       margin:0;
-      font-size: 22px;
-      letter-spacing: -0.25px;
+      font-size: 24px;
+      letter-spacing:-.35px;
     }
     .sectionHead p{
-      margin:0;
+      margin:6px 0 0;
       color: var(--muted);
-      font-size: 13.5px;
-      max-width: 64ch;
+      font-size: 13.8px;
+      max-width: 70ch;
     }
 
-    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
     .card{
-      border: 1px solid var(--line);
+      border:1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--card);
+      background: var(--paper);
       overflow:hidden;
-      box-shadow: 0 1px 0 rgba(11,15,25,.04);
+      box-shadow: 0 1px 0 rgba(18,20,23,.05);
     }
-    .pad{ padding: 18px; }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size: 12px;
-      color: rgba(11,15,25,.78);
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,45,141,.22);
-      background: rgba(255,45,141,.06);
-      margin-bottom: 10px;
-      font-weight: 950;
-    }
+    .pad{padding:18px}
 
-    .tile{ grid-column: span 4; min-height: 260px; }
+    /* Category tiles (Aesthetics / Laser / Injectables) */
+    .tile{grid-column: span 4; min-height: 320px; display:flex; flex-direction:column}
     .tile .img{
-      height: 148px;
-      background: #f7f2f6 center/cover no-repeat;
-      border-bottom: 1px solid var(--line);
+      height: 170px;
+      background: #efe7dd center/cover no-repeat;
+      border-bottom:1px solid var(--line);
       position:relative;
-      overflow:hidden;
     }
     .tile .img:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, transparent, rgba(11,15,25,.18));
+      background: linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.22));
       pointer-events:none;
     }
-    .tile h3{ margin: 0 0 6px; font-size: 16px; letter-spacing:-.2px; }
-    .tile p{ margin:0; color: var(--muted); font-size: 13.5px; }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(181,139,85,.28);
+      background: rgba(181,139,85,.10);
+      font-weight: 950;
+      color: rgba(18,20,23,.86);
+      margin-bottom: 10px;
+    }
+    .tile h3{margin:0 0 6px; font-size: 16.5px; letter-spacing:-.2px}
+    .tile p{margin:0; color: var(--muted); font-size: 13.7px}
     .go{
       margin-top: 12px;
       display:inline-flex; align-items:center; gap:8px;
       font-weight: 950;
       font-size: 13px;
-      color: rgba(255,45,141,.98);
+      color: rgba(181,139,85,.98);
     }
-    .go:hover{ text-decoration: underline; text-decoration-color: rgba(255,45,141,.35); }
+    .go:hover{text-decoration: underline; text-decoration-color: rgba(181,139,85,.35)}
+    .tile:hover{box-shadow: var(--shadow2); transform: translateY(-1px); transition:.18s ease}
+    .tile{transition:.18s ease}
 
-    /* Melhor micro-interação */
-    .tile:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); transition: .18s ease; }
-    .tile{ transition: .18s ease; }
-
-    .wide{ grid-column: span 8; }
-    .side{ grid-column: span 4; }
-
-    .list{ display:grid; gap: 10px; margin-top: 12px; }
+    /* Alternating image + copy blocks */
+    .split{grid-column: span 12; display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    .split .media{
+      border-radius: var(--radius);
+      min-height: 360px;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      background: #efe7dd center/cover no-repeat;
+      position:relative;
+      overflow:hidden;
+    }
+    .split .media:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 320px at 20% 20%, rgba(181,139,85,.18), transparent 60%),
+                  linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.10));
+      pointer-events:none;
+    }
+    .split .copy{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .split .copy h3{
+      margin:0 0 10px;
+      font-size: 20px;
+      letter-spacing:-.25px;
+    }
+    .split .copy p{margin:0; color: var(--muted); font-size: 14px}
+    .bullets{display:grid; gap:10px; margin-top: 14px}
     .li{
-      display:flex; gap: 10px;
+      display:flex; gap:10px; align-items:flex-start;
       padding: 12px 12px;
-      border: 1px solid var(--line);
+      border:1px solid rgba(18,20,23,.10);
+      background: rgba(243,236,228,.45);
       border-radius: 14px;
-      background: rgba(255,45,141,.03);
-      align-items:flex-start;
     }
     .dot{
-      width: 10px; height: 10px; border-radius: 99px;
-      background: rgba(255,45,141,.55);
+      width:10px; height:10px; border-radius:99px;
+      background: rgba(181,139,85,.85);
+      box-shadow: 0 0 0 5px rgba(181,139,85,.18);
       margin-top: 7px;
-      flex: 0 0 auto;
-      box-shadow: 0 0 0 5px rgba(255,45,141,.12);
+      flex:0 0 auto;
     }
+    .li b{display:block; font-size: 13.5px}
+    .li span{display:block; color: rgba(18,20,23,.68); font-size: 13.3px; margin-top: 2px}
 
-    /* FAQ */
-    details{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px 14px;
+    /* Testimonials */
+    .quote{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
       background: #fff;
+      padding: 18px;
+      box-shadow: 0 1px 0 rgba(18,20,23,.05);
     }
-    details summary{
-      cursor:pointer;
-      font-weight: 950;
-      list-style:none;
-      outline:none;
-    }
-    details summary::-webkit-details-marker{ display:none; }
-    details p{ margin: 10px 0 0; color: var(--muted); font-size: 13.5px; }
+    .quote h4{margin:0 0 8px; font-size: 15.5px; letter-spacing:-.15px}
+    .quote p{margin:0; color: var(--muted); font-size: 13.8px}
+    .who{margin-top: 10px; font-weight: 900; font-size: 12.5px; color: rgba(18,20,23,.78)}
 
-    /* Contact */
-    .kv{ display:grid; gap: 10px; margin-top: 12px; }
-    .kvRow{ display:flex; gap: 10px; align-items:flex-start; }
-    .k{
-      min-width: 92px;
-      font-size: 12px;
-      color: rgba(11,15,25,.62);
-      font-weight: 950;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+    /* CTA band */
+    .ctaBand{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(1000px 360px at 15% 20%, rgba(181,139,85,.22), transparent 60%),
+        linear-gradient(135deg, rgba(243,236,228,.85), rgba(255,255,255,.92));
+      padding: 28px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .v{ font-size: 13.5px; }
+    .ctaBand h3{margin:0; font-size: 20px; letter-spacing:-.25px}
+    .ctaBand p{margin:6px 0 0; color: var(--muted); font-size: 13.8px}
 
     /* Footer */
     footer{
-      padding: 34px 0 48px;
+      padding: 36px 0 48px;
       border-top: 1px solid var(--line);
-      background: rgba(255,255,255,.72);
+      background: rgba(243,236,228,.55);
     }
     .foot{
-      display:flex; align-items:flex-start; justify-content:space-between; gap: 18px;
-      flex-wrap:wrap;
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:18px; flex-wrap:wrap;
     }
-    .foot small{ color: var(--muted); display:block; margin-top: 6px; max-width: 70ch; }
-    .foot a{ text-decoration: underline; text-decoration-color: rgba(255,45,141,.35); }
+    .foot small{display:block; margin-top:6px; color: var(--muted); max-width: 72ch}
+    .foot a{ text-decoration: underline; text-decoration-color: rgba(181,139,85,.35)}
 
-    /* WhatsApp floating button */
+    /* WhatsApp floating */
     .waFloat{
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 99;
-      display:flex;
-      align-items:center;
-      gap:10px;
+      position:fixed; right:16px; bottom:16px; z-index:99;
+      display:flex; align-items:center; gap:10px;
       padding: 12px 14px;
       border-radius: 999px;
       background: rgba(37,211,102,.95);
       color:#06130B;
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.10);
       box-shadow: var(--shadow2);
-      font-weight: 950;
+      font-weight: 1000;
       transition: transform .15s ease, box-shadow .15s ease;
     }
-    .waFloat:hover{ transform: translateY(-1px); box-shadow: var(--shadow); }
+    .waFloat:hover{transform:translateY(-1px); box-shadow: var(--shadow)}
     .waIcon{
-      width: 28px; height: 28px; border-radius: 10px;
+      width:28px; height:28px; border-radius: 10px;
       display:grid; place-items:center;
       background: rgba(255,255,255,.25);
       color:#06130B;
       font-weight: 1000;
-      letter-spacing:.3px;
       font-size: 12px;
+      letter-spacing:.3px;
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .heroMedia{ min-height: 320px; }
-      .miniGrid{ grid-template-columns: 1fr; }
-      .tile{ grid-column: span 12; }
-      .wide{ grid-column: span 12; }
-      .side{ grid-column: span 12; }
-      .links{ display:none; }
-      .burger{ display:inline-flex; }
-      .mobileMenu.open{ display:block; }
+      .links{display:none}
+      .burger{display:inline-flex}
+      .heroInner{grid-template-columns: 1fr; padding: 22px; min-height: 560px}
+      .tile{grid-column: span 12}
+      .split{grid-template-columns: 1fr}
+      .quote{grid-column: span 12}
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="wrap">
-    <div class="nav">
-      <a class="brand" href="#top" aria-label="Mediskin home">
-        <div class="mark" aria-hidden="true"></div>
-        <div>
-          <strong>Mediskin.je</strong>
-          <span>Laser • Aesthetics • Injectables • Weight Loss</span>
+  <!-- Topbar with contacts + socials -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="row">
+        <div class="left">
+          <span class="pill" id="phonePill">📞 07700 801000</span>
+          <a class="pill" id="emailPill" href="mailto:info@mediskin.je">✉️ info@mediskin.je</a>
         </div>
-      </a>
+        <div class="social" aria-label="Social links">
+          <a class="iconBtn" id="igTop" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm4.5 4.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6ZM17.8 6.7a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/>
+            </svg>
+          </a>
+          <a class="iconBtn" id="fbTop" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.2-1.5 1.5-1.5h1.7V4.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5V11H7.2v3h2.6v8h3.7Z"/>
+            </svg>
+          </a>
+          <a class="iconBtn" id="waTopIcon" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.1 2a9.9 9.9 0 0 0-8.5 14.9L2.7 22l5.2-1.7A9.9 9.9 0 1 0 12.1 2Zm0 2a7.9 7.9 0 0 1 0 15.8c-1.3 0-2.6-.3-3.8-.9l-.3-.1-3.1 1 1-3-.2-.3A7.9 7.9 0 0 1 12.1 4Zm4.7 9.4c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.3 0-.4s-.7-1.7-1-2.3c-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.4 1 2.5.1.2 1.6 2.6 4 3.6.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <nav class="links" aria-label="Primary">
-        <a href="#treatments">Treatments</a>
-        <a href="#concerns">Skin Concerns</a>
-        <a href="#booking">Booking</a>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Mediskin home">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <strong>Mediskin.je</strong>
+            <span>Aesthetics • Laser • Injectables</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Primary">
+          <a href="#welcome">Our clinic</a>
+          <a href="#categories">Treatments</a>
+          <a href="#approach">Our approach</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn btnGhost" href="mailto:info@mediskin.je" id="emailBtn">info@mediskin.je</a>
+          <button class="btn burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+          <a class="btn btnWA" id="waHeader" href="#">Book on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu">
+        <a href="#welcome">Our clinic</a>
+        <a href="#categories">Treatments</a>
+        <a href="#approach">Our approach</a>
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="cta">
-        <a class="btn btnGhost" href="mailto:info@mediskin.je">info@mediskin.je</a>
-        <button class="btn burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-        <a class="btn btnWA" id="waTop" href="#">Book on WhatsApp</a>
+        <a id="waMobile" href="#">Book on WhatsApp</a>
       </div>
     </div>
+  </header>
 
-    <div class="mobileMenu" id="mobileMenu">
-      <a href="#treatments">Treatments</a>
-      <a href="#concerns">Skin Concerns</a>
-      <a href="#booking">Booking</a>
-      <a href="#contact">Contact</a>
-      <a id="waMobile" href="#">Book on WhatsApp</a>
-    </div>
-  </div>
-</header>
+  <main id="top">
+    <!-- HERO -->
+    <div class="wrap hero">
+      <div class="heroFrame">
+        <div class="heroBg" role="img" aria-label="Aesthetic clinic"></div>
 
-<main id="top">
-  <!-- HERO -->
-  <div class="wrap hero">
-    <div class="heroGrid">
-      <div class="heroCard">
-        <div class="kicker"><span class="kdot"></span> Clean. Clinical. Uncomplicated. • Women & men • All skin tones</div>
-        <h1>Modern laser, aesthetics and injectables — with instant WhatsApp booking.</h1>
-        <p class="lead">
-          A premium clinic feel without the “smiley/happy” style. Clear categories, simple decisions, and fast contact.
-          Tell us what you want to improve — we’ll guide you to the right option.
-        </p>
+        <div class="heroInner">
+          <div class="heroCopy">
+            <div class="kicker"><span class="kdot"></span> Calm. Premium. Results-led. • Women & men • All skin tones</div>
+            <h1>Enhance, rejuvenate & restore skin confidence — with instant WhatsApp booking.</h1>
+            <p class="lead">
+              A clinic-style experience without the noise. Clear categories, a guided approach, and simple decisions —
+              message us on WhatsApp to book or ask a quick question.
+            </p>
 
-        <div class="heroActions">
-          <a class="btn btnAccent" href="#treatments">View treatments</a>
-          <a class="btn btnWA" id="waHero" href="#">Book on WhatsApp</a>
-          <a class="btn" href="#concerns">Browse skin concerns</a>
-        </div>
-
-        <div class="miniGrid" aria-label="Highlights">
-          <div class="mini"><b>WhatsApp-first</b><span>Book, ask questions, share photos if needed.</span></div>
-          <div class="mini"><b>Men welcome</b><span>Hair loss, laser, skin, and weight loss support.</span></div>
-          <div class="mini"><b>All skin tones</b><span>Inclusive messaging + clear suitability checks.</span></div>
-        </div>
-      </div>
-
-      <div class="heroMedia" aria-label="Clinic treatment image">
-        <div class="bg" role="img" aria-label="Aesthetic clinic"></div>
-        <div class="badge">
-          <strong>Mediskin.je</strong>
-          <span>Laser • Skin • Injectables • Weight Loss • Professional approach</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TREATMENTS -->
-  <section id="treatments">
-    <div class="wrap">
-      <div class="sectionHead">
-        <div>
-          <h2>Treatments</h2>
-          <p>Structured like premium clinics: choose a category → book instantly on WhatsApp.</p>
-        </div>
-        <a class="btn btnWA" id="waTreatments" href="#">Book on WhatsApp</a>
-      </div>
-
-      <div class="grid">
-        <article class="card tile">
-          <div class="img" data-img="laser" aria-label="Laser treatment"></div>
-          <div class="pad">
-            <div class="tag">Laser</div>
-            <h3>Laser Hair Removal</h3>
-            <p>For women & men — clear, consultation-led care.</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’d like to book Laser Hair Removal. Area: _____. Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-
-        <article class="card tile">
-          <div class="img" data-img="injectables" aria-label="Injectables consultation"></div>
-          <div class="pad">
-            <div class="tag">Injectables</div>
-            <h3>Injectables</h3>
-            <p>Discrete, professional consultations (no gimmicks).</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’d like to enquire about Injectables. Area/goal: _____. Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-
-        <article class="card tile">
-          <div class="img" data-img="facials" aria-label="Facial treatment"></div>
-          <div class="pad">
-            <div class="tag">Facials</div>
-            <h3>Facials & Skin Health</h3>
-            <p>Professional facials for texture, tone and glow.</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’d like to book a Facial. Skin goal: _____. Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-
-        <article class="card tile">
-          <div class="img" data-img="skin" aria-label="Skin treatment"></div>
-          <div class="pad">
-            <div class="tag">Aesthetics</div>
-            <h3>Skin Treatments</h3>
-            <p>Targeted care for specific skin concerns.</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’m interested in Skin Treatments. My concern is: _____. Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-
-        <article class="card tile">
-          <div class="img" data-img="tattoo" aria-label="Laser tattoo removal"></div>
-          <div class="pad">
-            <div class="tag">Laser</div>
-            <h3>Tattoo Removal</h3>
-            <p>Clear steps. You can share a photo for guidance.</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’d like Tattoo Removal. I can share a photo + size/colour. Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-
-        <article class="card tile">
-          <div class="img" data-img="weight" aria-label="Weight loss support"></div>
-          <div class="pad">
-            <div class="tag">Weight Loss</div>
-            <h3>Weight Loss</h3>
-            <p>Professional, supportive pathway — clear expectations.</p>
-            <a class="go" href="#" data-wa="Hi Mediskin.je — I’m interested in Weight Loss support. Can you explain the process and booking? Preferred day/time: _____.">Book on WhatsApp →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONCERNS -->
-  <section id="concerns">
-    <div class="wrap">
-      <div class="sectionHead">
-        <div>
-          <h2>Skin concerns (all)</h2>
-          <p>A clean list like premium clinic sites. Pick one → message us on WhatsApp.</p>
-        </div>
-        <a class="btn" href="#booking">How booking works</a>
-      </div>
-
-      <div class="grid">
-        <div class="card wide">
-          <div class="pad">
-            <div class="tag">Concerns</div>
-            <h3>Choose what you want to improve</h3>
-            <p>Send one line on WhatsApp: “Concern + your goal + preferred day/time”.</p>
-
-            <div class="list">
-              <div class="li"><span class="dot"></span><div><b>Acne / breakouts</b><div style="color:var(--muted); font-size:13.5px;">Reduce inflammation, improve texture</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Acne scarring</b><div style="color:var(--muted); font-size:13.5px;">Smooth uneven texture</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Pigmentation / dark spots</b><div style="color:var(--muted); font-size:13.5px;">Sun damage, age spots, uneven tone</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Redness / rosacea</b><div style="color:var(--muted); font-size:13.5px;">Calm visible redness and sensitivity</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Thread veins</b><div style="color:var(--muted); font-size:13.5px;">Target visible veins (face/areas)</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Fine lines / wrinkles</b><div style="color:var(--muted); font-size:13.5px;">Rejuvenation and smoothing</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Dullness / lack of glow</b><div style="color:var(--muted); font-size:13.5px;">Brighten and refresh complexion</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Enlarged pores</b><div style="color:var(--muted); font-size:13.5px;">Refine skin appearance</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Uneven texture</b><div style="color:var(--muted); font-size:13.5px;">Smoother skin feel and look</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Unwanted hair</b><div style="color:var(--muted); font-size:13.5px;">Laser hair removal</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Tattoo removal</b><div style="color:var(--muted); font-size:13.5px;">Share a photo for guidance</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>Hair loss (men welcome)</b><div style="color:var(--muted); font-size:13.5px;">Discrete support pathway</div></div></div>
-            </div>
-
-            <div style="height:14px;"></div>
-            <a class="btn btnWA" id="waConcerns" href="#">Message on WhatsApp about a concern</a>
-          </div>
-        </div>
-
-        <aside class="card side" id="booking">
-          <div class="pad">
-            <div class="tag">Booking</div>
-            <h3>Book online via WhatsApp</h3>
-            <p>Fastest: message us with 3 things:</p>
-            <div class="list">
-              <div class="li"><span class="dot"></span><div><b>1) Treatment/concern</b><div style="color:var(--muted); font-size:13.5px;">Example: Laser hair removal (underarms)</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>2) Preferred day/time</b><div style="color:var(--muted); font-size:13.5px;">We confirm availability</div></div></div>
-              <div class="li"><span class="dot"></span><div><b>3) Any key notes</b><div style="color:var(--muted); font-size:13.5px;">Optional photos if helpful</div></div></div>
-            </div>
-
-            <div style="height:12px;"></div>
-            <a class="btn btnWA" id="waBook" href="#" style="width:100%;">Book on WhatsApp</a>
-            <div style="height:10px;"></div>
-            <a class="btn" href="mailto:info@mediskin.je" style="width:100%;">Email: info@mediskin.je</a>
-
-            <div style="height:12px;"></div>
-            <div class="kv">
-              <div class="kvRow"><span class="k">Phone</span><span class="v">07700 801000</span></div>
-              <div class="kvRow"><span class="k">WhatsApp</span><span class="v">07700 801000</span></div>
-              <div class="kvRow"><span class="k">Website</span><span class="v">mediskin.je</span></div>
+            <div class="heroActions">
+              <a class="btn btnAccent" href="#categories">View treatments</a>
+              <a class="btn btnWA" id="waHero" href="#">Book on WhatsApp</a>
+              <a class="btn" href="#approach">Our approach</a>
             </div>
           </div>
-        </aside>
-      </div>
-    </div>
-  </section>
 
-  <!-- FAQ + CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="sectionHead">
-        <div>
-          <h2>FAQ & Contact</h2>
-          <p>Short, professional answers. No fluff.</p>
-        </div>
-      </div>
+          <div class="heroCard" aria-label="Quick booking info">
+            <h3>Fast booking (WhatsApp-first)</h3>
+            <p>Send 3 things: <b>treatment/concern</b>, <b>preferred day/time</b>, and any <b>notes</b> (optional photos).</p>
 
-      <div class="grid">
-        <div class="card wide">
-          <div class="pad" style="display:grid; gap:12px;">
-            <details>
-              <summary>Do you treat all skin tones?</summary>
-              <p>Yes — we keep messaging inclusive. Suitability is confirmed during consultation (and patch tests where appropriate).</p>
-            </details>
-            <details>
-              <summary>Do you treat men?</summary>
-              <p>Yes — men are welcome. Laser, skin, hair loss and weight loss support are all available.</p>
-            </details>
-            <details>
-              <summary>How do I book?</summary>
-              <p>Tap “Book on WhatsApp” and send: treatment/concern + preferred day/time + any notes. We’ll reply to confirm.</p>
-            </details>
-          </div>
-        </div>
-
-        <div class="card side">
-          <div class="pad">
-            <div class="tag">Contact</div>
-            <h3>Mediskin.je</h3>
-            <div class="kv">
-              <div class="kvRow"><span class="k">Email</span><span class="v"><a href="mailto:info@mediskin.je">info@mediskin.je</a></span></div>
-              <div class="kvRow"><span class="k">Phone</span><span class="v">07700 801000</span></div>
-              <div class="kvRow"><span class="k">WhatsApp</span><span class="v">07700 801000</span></div>
+            <div class="miniGrid" aria-label="Highlights">
+              <div class="mini"><b>Premium feel</b><span>Clean layout, calm visuals, no gimmicks.</span></div>
+              <div class="mini"><b>Clear categories</b><span>Aesthetics, laser & injectables — easy navigation.</span></div>
+              <div class="mini"><b>Supportive guidance</b><span>We help you choose what fits your goal.</span></div>
             </div>
-            <div style="height:12px;"></div>
-            <a class="btn btnWA" id="waContact" href="#" style="width:100%;">Message on WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WELCOME / OUR CLINIC -->
+    <section id="welcome">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Welcome</h2>
+            <p>A professional, calm clinic experience — with treatments organised clearly and a straightforward booking flow.</p>
+          </div>
+          <a class="btn btnWA" id="waWelcome" href="#">Book on WhatsApp</a>
+        </div>
+
+        <div class="grid">
+          <div class="split">
+            <div class="media" id="welcomeMedia" aria-label="Clinic environment image"></div>
+            <div class="copy">
+              <div class="tag">Mediskin.je</div>
+              <h3>Personalised care, focused on your goals</h3>
+              <p>
+                Tell us what you want to improve and your preferred timing. We’ll guide you to the most appropriate
+                option and confirm availability via WhatsApp.
+              </p>
+
+              <div class="bullets">
+                <div class="li"><span class="dot"></span><div><b>Clear plan</b><span>Start with your goal → choose category → book.</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Professional tone</b><span>No overpromises, no hype — just clarity.</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Quick contact</b><span>WhatsApp is the fastest way to get an answer.</span></div></div>
+              </div>
+
+              <div style="height:14px"></div>
+              <div class="heroActions">
+                <a class="btn btnAccent" href="#categories">Explore treatments</a>
+                <a class="btn btnWA" id="waWelcome2" href="#">Message on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Treatments</h2>
+            <p>Choose a category. If you’re unsure, message us your goal and we’ll point you to the right option.</p>
+          </div>
+          <a class="btn btnWA" id="waCategories" href="#">Book on WhatsApp</a>
+        </div>
+
+        <div class="grid">
+          <article class="card tile">
+            <div class="img" id="imgAesthetics" aria-label="Aesthetics"></div>
+            <div class="pad">
+              <div class="tag">Aesthetics</div>
+              <h3>Skin, facials & advanced treatments</h3>
+              <p>Support for tone, texture, glow, and long-term skin health.</p>
+              <a class="go" href="#" data-wa="Hi Mediskin.je — I’m interested in Aesthetics. My goal is: _____. Preferred day/time: _____.">Enquire on WhatsApp →</a>
+            </div>
+          </article>
+
+          <article class="card tile">
+            <div class="img" id="imgLaser" aria-label="Laser"></div>
+            <div class="pad">
+              <div class="tag">Laser</div>
+              <h3>Laser services</h3>
+              <p>Target unwanted hair and selected skin concerns with a clear plan.</p>
+              <a class="go" href="#" data-wa="Hi Mediskin.je — I’m interested in Laser. Area/concern: _____. Preferred day/time: _____.">Enquire on WhatsApp →</a>
+            </div>
+          </article>
+
+          <article class="card tile">
+            <div class="img" id="imgInjectables" aria-label="Injectables"></div>
+            <div class="pad">
+              <div class="tag">Injectables</div>
+              <h3>Injectables</h3>
+              <p>Consultation-led, subtle results — professional and discreet.</p>
+              <a class="go" href="#" data-wa="Hi Mediskin.je — I’d like to enquire about Injectables. Area/goal: _____. Preferred day/time: _____.">Enquire on WhatsApp →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Our approach</h2>
+            <p>A simple, structured way to help you choose and book confidently.</p>
+          </div>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+
+        <div class="grid">
+          <div class="quote">
+            <h4>1) Goal-first</h4>
+            <p>Tell us what you want to improve — we’ll guide you to the best category and next step.</p>
+          </div>
+          <div class="quote">
+            <h4>2) Clear suitability</h4>
+            <p>We keep it professional: we’ll confirm suitability and expectations before booking.</p>
+          </div>
+          <div class="quote">
+            <h4>3) Minimal friction</h4>
+            <p>WhatsApp booking keeps it fast — you don’t need long forms to get started.</p>
+          </div>
+          <div class="quote">
+            <h4>4) Maintain & review</h4>
+            <p>If you’re aiming for long-term skin goals, we’ll help you keep results consistent.</p>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="ctaBand">
+          <div>
+            <h3>Book a consultation via WhatsApp</h3>
+            <p>Message: treatment/concern + preferred day/time + notes (optional).</p>
+          </div>
+          <div class="heroActions">
+            <a class="btn btnWA" id="waApproach" href="#">Book on WhatsApp</a>
+            <a class="btn" href="mailto:info@mediskin.je" id="emailApproach">Email</a>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Reviews</h2>
+            <p>Short, honest feedback — calm experience, clear guidance, professional approach.</p>
+          </div>
+          <a class="btn btnWA" id="waReviews" href="#">Ask a question on WhatsApp</a>
+        </div>
+
+        <div class="grid">
+          <div class="quote">
+            <h4>“I felt guided, not sold to.”</h4>
+            <p>Everything was explained clearly and the approach felt professional and calm.</p>
+            <div class="who">— Happy Customer</div>
+          </div>
+          <div class="quote">
+            <h4>“Straightforward booking.”</h4>
+            <p>I messaged with my goal and got a quick response with options and availability.</p>
+            <div class="who">— Happy Customer</div>
+          </div>
+          <div class="quote">
+            <h4>“Subtle, natural results.”</h4>
+            <p>The focus was on balance and what suited my face, not trends.</p>
+            <div class="who">— Happy Customer</div>
+          </div>
+          <div class="quote">
+            <h4>“Clean, premium feel.”</h4>
+            <p>Everything felt organised and easy — no fluff, just clarity.</p>
+            <div class="who">— Happy Customer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Contact</h2>
+            <p>Use WhatsApp for fastest replies. Email is also available.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="grid-column: span 7;">
+            <div class="pad">
+              <div class="tag">WhatsApp-first</div>
+              <h3 style="margin:0 0 10px; font-size:20px; letter-spacing:-.25px;">Mediskin.je</h3>
+              <p style="margin:0; color:var(--muted); font-size:14px;">
+                Message us with: treatment/concern + preferred day/time + any notes.
+              </p>
+
+              <div class="bullets" style="margin-top:14px;">
+                <div class="li"><span class="dot"></span><div><b>Phone</b><span id="phoneLine">07700 801000</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Email</b><span><a id="emailLine" href="mailto:info@mediskin.je">info@mediskin.je</a></span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Social</b><span><a id="igLine" href="#" target="_blank" rel="noopener">Instagram</a> • <a id="fbLine" href="#" target="_blank" rel="noopener">Facebook</a></span></div></div>
+              </div>
+
+              <div style="height:14px"></div>
+              <div class="heroActions">
+                <a class="btn btnWA" id="waContact" href="#">Message on WhatsApp</a>
+                <a class="btn btnAccent" id="igContact" href="#" target="_blank" rel="noopener">Open Instagram</a>
+                <a class="btn" id="fbContact" href="#" target="_blank" rel="noopener">Open Facebook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column: span 5;">
+            <div class="pad">
+              <div class="tag">Quick message</div>
+              <h3 style="margin:0 0 10px; font-size:18px; letter-spacing:-.2px;">Copy & paste template</h3>
+              <p style="margin:0; color:var(--muted); font-size:13.8px;">
+                Tap WhatsApp and send this message (edit the blanks):
+              </p>
+              <div style="height:12px"></div>
+              <div class="li" style="background:rgba(255,255,255,.95)">
+                <span class="dot"></span>
+                <div>
+                  <b>Message</b>
+                  <span id="templateText">Hi Mediskin.je — I’d like to book. Treatment/concern: _____. Preferred day/time: _____. Notes: _____. Thank you.</span>
+                </div>
+              </div>
+
+              <div style="height:12px"></div>
+              <a class="btn btnWA" id="waTemplate" href="#" style="width:100%;">Book on WhatsApp</a>
+              <div style="height:10px"></div>
+              <a class="btn" id="emailContactBtn" href="mailto:info@mediskin.je" style="width:100%;">Email: info@mediskin.je</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="waFloat" id="waFloat" href="#" aria-label="Book on WhatsApp">
+    <span class="waIcon">WA</span>
+    Book on WhatsApp
+  </a>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <strong>Mediskin.je</strong>
+        <small>
+          Premium, calm, results-led clinic feel — Aesthetics, Laser & Injectables. WhatsApp-first booking.
+          <br><br>
+          Images are from Unsplash and can be used for commercial projects under the Unsplash License.
+        </small>
+      </div>
+      <div>
+        <small>© <span id="year"></span> Mediskin.je • <a href="mailto:info@mediskin.je">info@mediskin.je</a></small>
+      </div>
     </div>
-  </section>
+  </footer>
 
-</main>
+  <script>
+    // ========= CONTACT CONFIG (EDIT HERE) =========
+    const CONTACT = {
+      phoneDisplay: "07700 801000",
+      whatsappNumberE164: "+447700801000",
+      email: "info@mediskin.je",
 
-<a class="waFloat" id="waFloat" href="#" aria-label="Book on WhatsApp">
-  <span class="waIcon">WA</span>
-  Book on WhatsApp
-</a>
-
-<footer>
-  <div class="wrap foot">
-    <div>
-      <strong>Mediskin.je</strong>
-      <small>
-        Clean, uncomplicated aesthetic care in Jersey: laser, skin treatments, injectables, facials, weight loss and hair loss support.
-        <br><br>
-        Images are from Unsplash and can be used for commercial projects under the Unsplash License.
-      </small>
-    </div>
-    <div>
-      <small>© <span id="year"></span> Mediskin.je • <a href="mailto:info@mediskin.je">info@mediskin.je</a></small>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // ===== CONFIG =====
-  const WHATSAPP_NUMBER_E164 = "+447700801000"; // change if needed
-  const DEFAULT_MESSAGE = "Hi Mediskin.je — I’d like to book a consultation. Treatment/concern: _____. Preferred day/time: _____. Thank you.";
-
-  // Stable images (clinic/aesthetics vibe). If any fails, it falls back to a gradient.
-  const IMAGE_MAP = {
-    laser:       "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1600&q=80",
-    injectables: "https://images.unsplash.com/photo-1580281657527-47f249e8f10f?auto=format&fit=crop&w=1600&q=80",
-    facials:     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80",
-    skin:        "https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=80",
-    tattoo:      "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1600&q=80",
-    weight:      "https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=1600&q=80",
-  };
-
-  // ===== Helpers =====
-  const clean = (s) => (s || "").replace(/[^\d+]/g, "");
-  const toWa = (msg) => {
-    const num = clean(WHATSAPP_NUMBER_E164).replace("+", "");
-    return `https://wa.me/${num}?text=${encodeURIComponent(msg || DEFAULT_MESSAGE)}`;
-  };
-
-  // Bind WhatsApp buttons (direct)
-  const bind = (id, msg) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.href = toWa(msg);
-    el.rel = "noopener";
-    el.target = "_blank";
-  };
-
-  bind("waTop", DEFAULT_MESSAGE);
-  bind("waMobile", DEFAULT_MESSAGE);
-  bind("waHero", DEFAULT_MESSAGE);
-  bind("waTreatments", DEFAULT_MESSAGE);
-  bind("waConcerns", "Hi Mediskin.je — my skin concern is: _____. My goal is: _____. Preferred day/time: _____.");
-  bind("waBook", DEFAULT_MESSAGE);
-  bind("waContact", DEFAULT_MESSAGE);
-  bind("waFloat", DEFAULT_MESSAGE);
-
-  // Bind treatment-specific WhatsApp links
-  document.querySelectorAll("[data-wa]").forEach(a => {
-    a.href = toWa(a.getAttribute("data-wa"));
-    a.rel = "noopener";
-    a.target = "_blank";
-  });
-
-  // Images: set background-image + fallback if fails
-  const setBgWithFallback = (el, url) => {
-    // nice fallback gradient
-    el.style.background =
-      "radial-gradient(900px 300px at 10% 20%, rgba(255,45,141,.18), transparent 60%)," +
-      "linear-gradient(135deg, rgba(11,15,25,.10), rgba(255,45,141,.06))";
-    if (!url) return;
-
-    const img = new Image();
-    img.onload = () => {
-      el.style.backgroundImage = `url('${url}')`;
-      el.style.backgroundSize = "cover";
-      el.style.backgroundPosition = "center";
-      el.style.backgroundRepeat = "no-repeat";
+      // Put YOUR real pages here (replace if needed)
+      instagramUrl: "https://www.instagram.com/",  // <- change to your IG page
+      facebookUrl:  "https://www.facebook.com/"     // <- change to your FB page
     };
-    img.onerror = () => {
-      // keep fallback
+
+    const DEFAULT_MESSAGE =
+      "Hi Mediskin.je — I’d like to book. Treatment/concern: _____. Preferred day/time: _____. Notes: _____. Thank you.";
+
+    // ========= Helpers =========
+    const clean = (s) => (s || "").replace(/[^\d+]/g, "");
+    const toWa = (msg) => {
+      const num = clean(CONTACT.whatsappNumberE164).replace("+", "");
+      return `https://wa.me/${num}?text=${encodeURIComponent(msg || DEFAULT_MESSAGE)}`;
     };
-    img.referrerPolicy = "no-referrer";
-    img.src = url;
-  };
 
-  document.querySelectorAll(".tile .img[data-img]").forEach(div => {
-    const key = div.getAttribute("data-img");
-    setBgWithFallback(div, IMAGE_MAP[key]);
-  });
+    // ========= Apply contacts =========
+    // phone + email visible
+    document.getElementById("phonePill").textContent = "📞 " + CONTACT.phoneDisplay;
+    document.getElementById("phoneLine").textContent = CONTACT.phoneDisplay;
 
-  // Mobile menu toggle (fixed)
-  const burger = document.getElementById("burger");
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (burger && mobileMenu){
-    burger.addEventListener("click", () => {
-      const open = mobileMenu.classList.toggle("open");
-      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    const emailEls = ["emailPill","emailBtn","emailLine","emailApproach","emailContactBtn"];
+    emailEls.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.href = `mailto:${CONTACT.email}`;
+      if (id === "emailBtn") el.textContent = CONTACT.email;
+      if (id === "emailPill" || id === "emailContactBtn") el.textContent = "✉️ " + CONTACT.email;
+      if (id === "emailLine") el.textContent = CONTACT.email;
     });
-    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      mobileMenu.classList.remove("open");
-      burger.setAttribute("aria-expanded", "false");
-    }));
-  }
 
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    // socials
+    const setLink = (id, url) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.href = url;
+      el.target = "_blank";
+      el.rel = "noopener";
+    };
+
+    ["igTop","igLine","igContact","fbTop","fbLine","fbContact"].forEach(() => {});
+    setLink("igTop", CONTACT.instagramUrl);
+    setLink("igLine", CONTACT.instagramUrl);
+    setLink("igContact", CONTACT.instagramUrl);
+
+    setLink("fbTop", CONTACT.facebookUrl);
+    setLink("fbLine", CONTACT.facebookUrl);
+    setLink("fbContact", CONTACT.facebookUrl);
+
+    // WhatsApp binds
+    const bindWa = (id, msg) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.href = toWa(msg);
+      el.target = "_blank";
+      el.rel = "noopener";
+    };
+
+    bindWa("waHeader", DEFAULT_MESSAGE);
+    bindWa("waMobile", DEFAULT_MESSAGE);
+    bindWa("waTopIcon", DEFAULT_MESSAGE);
+    bindWa("waHero", DEFAULT_MESSAGE);
+    bindWa("waWelcome", "Hi Mediskin.je — I’d like to book a consultation. Goal: _____. Preferred day/time: _____.");
+    bindWa("waWelcome2", "Hi Mediskin.je — my goal is: _____. Can you recommend the best option? Preferred day/time: _____.");
+    bindWa("waCategories", DEFAULT_MESSAGE);
+    bindWa("waApproach", DEFAULT_MESSAGE);
+    bindWa("waReviews", "Hi Mediskin.je — quick question: _____.");
+    bindWa("waContact", DEFAULT_MESSAGE);
+    bindWa("waTemplate", DEFAULT_MESSAGE);
+    bindWa("waFloat", DEFAULT_MESSAGE);
+
+    // Treatment-specific WhatsApp links
+    document.querySelectorAll("[data-wa]").forEach(a => {
+      a.href = toWa(a.getAttribute("data-wa"));
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
+
+    // ========= Images (safe, neutral clinic vibe) =========
+    // You can swap any of these URLs later.
+    const IMAGES = {
+      welcome:    "https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=2000&q=80",
+      aesthetics: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2000&q=80",
+      laser:      "https://images.unsplash.com/photo-1580281657527-47f249e8f10f?auto=format&fit=crop&w=2000&q=80",
+      inject:     "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=2000&q=80"
+    };
+
+    const setBg = (el, url) => {
+      if (!el) return;
+      el.style.background =
+        "radial-gradient(900px 320px at 12% 18%, rgba(181,139,85,.20), transparent 60%)," +
+        "linear-gradient(135deg, rgba(18,20,23,.10), rgba(243,236,228,.55))";
+      const img = new Image();
+      img.onload = () => {
+        el.style.backgroundImage = `url('${url}')`;
+        el.style.backgroundSize = "cover";
+        el.style.backgroundPosition = "center";
+        el.style.backgroundRepeat = "no-repeat";
+      };
+      img.referrerPolicy = "no-referrer";
+      img.src = url;
+    };
+
+    setBg(document.getElementById("welcomeMedia"), IMAGES.welcome);
+    setBg(document.getElementById("imgAesthetics"), IMAGES.aesthetics);
+    setBg(document.getElementById("imgLaser"), IMAGES.laser);
+    setBg(document.getElementById("imgInjectables"), IMAGES.inject);
+
+    // ========= Mobile menu toggle =========
+    const burger = document.getElementById("burger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (burger && mobileMenu){
+      burger.addEventListener("click", () => {
+        const open = mobileMenu.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      }));
+    }
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
-  </html>
+</html>
