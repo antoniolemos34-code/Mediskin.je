@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0B0F19" />
+  <meta name="theme-color" content="#FF2D8D" />
   <meta name="color-scheme" content="light" />
 
   <title>Mediskin.je — Laser, Aesthetics, Injectables & Weight Loss | Jersey</title>
@@ -19,6 +19,7 @@
 
   <style>
     :root{
+      /* Pink + White theme */
       --bg:#ffffff;
       --ink:#0B0F19;
       --muted:#5A6476;
@@ -33,8 +34,9 @@
 
       --max: 1140px;
 
-      --accent:#0B0F19;
-      --wa:#25D366;
+      --accent:#FF2D8D;          /* main accent */
+      --accent2:#FF6BB7;         /* soft accent */
+      --wa:#25D366;              /* keep WhatsApp green for recognisability */
 
       --glass: rgba(255,255,255,.72);
     }
@@ -46,8 +48,8 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
       background:
-        radial-gradient(1200px 650px at 12% -15%, rgba(11,15,25,.07), transparent 60%),
-        radial-gradient(1000px 520px at 90% -25%, rgba(11,15,25,.06), transparent 60%),
+        radial-gradient(1200px 650px at 12% -15%, rgba(255,45,141,.12), transparent 60%),
+        radial-gradient(1000px 520px at 90% -25%, rgba(255,107,183,.10), transparent 60%),
         var(--bg);
       line-height:1.55;
     }
@@ -61,7 +63,7 @@
     /* ===== Header ===== */
     header{
       position:sticky; top:0; z-index:60;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.82);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
@@ -73,7 +75,7 @@
     .brand{ display:flex; align-items:center; gap:10px; min-width: 220px; }
     .mark{
       width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(11,15,25,1), rgba(11,15,25,.75));
+      background: linear-gradient(135deg, var(--accent), rgba(255,45,141,.65));
       box-shadow: var(--shadow2);
     }
     .brand strong{ font-size:15.5px; letter-spacing:.1px; }
@@ -86,7 +88,7 @@
       padding: 8px 10px;
       border-radius: 12px;
     }
-    .links a:hover{ background: rgba(11,15,25,.06); color: rgba(11,15,25,.95); }
+    .links a:hover{ background: rgba(255,45,141,.08); color: rgba(11,15,25,.95); }
 
     .cta{ display:flex; gap:10px; align-items:center; }
     .btn{
@@ -96,7 +98,7 @@
       border: 1px solid var(--line);
       background: #fff;
       box-shadow: 0 1px 0 rgba(11,15,25,.04);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13.5px;
       cursor:pointer;
       user-select:none;
@@ -104,10 +106,11 @@
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow2); }
     .btn:active{ transform: translateY(0px); box-shadow: 0 10px 26px rgba(11,15,25,.10); }
-    .btnDark{
+
+    .btnAccent{
       background: var(--accent);
       color:#fff;
-      border-color: rgba(11,15,25,.18);
+      border-color: rgba(255,45,141,.30);
     }
     .btnWA{
       background: var(--wa);
@@ -144,7 +147,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius2);
       background:
-        radial-gradient(900px 450px at 10% 5%, rgba(11,15,25,.08), transparent 60%),
+        radial-gradient(900px 450px at 10% 5%, rgba(255,45,141,.10), transparent 60%),
         #fff;
       box-shadow: var(--shadow);
       padding: 30px;
@@ -159,24 +162,24 @@
       width: 360px; height: 360px;
       border-radius: 999px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(37,211,102,.22), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(11,15,25,.18), transparent 60%);
+        radial-gradient(circle at 30% 30%, rgba(255,45,141,.22), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(255,107,183,.18), transparent 60%);
       pointer-events:none;
-      opacity:.9;
+      opacity:.95;
     }
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding: 8px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.86);
       font-size: 12.5px;
       color: rgba(11,15,25,.78);
     }
     .kdot{
       width: 8px; height:8px; border-radius: 99px;
-      background: var(--wa);
-      box-shadow: 0 0 0 6px rgba(37,211,102,.18);
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,45,141,.18);
     }
     h1{
       margin: 16px 0 10px;
@@ -201,7 +204,7 @@
     .mini{
       border: 1px solid var(--line);
       border-radius: 16px;
-      background: rgba(11,15,25,.02);
+      background: rgba(255,45,141,.035);
       padding: 12px 12px;
     }
     .mini b{ display:block; font-size: 13px; }
@@ -214,13 +217,14 @@
       overflow:hidden;
       position:relative;
       min-height: 460px;
-      background: #0b0f19;
+      background: #1a0b12;
     }
     .heroMedia .bg{
       position:absolute; inset:0;
+      /* WORKING images.unsplash.com links (not source.unsplash.com) */
       background:
-        linear-gradient(180deg, rgba(11,15,25,.15), rgba(11,15,25,.55)),
-        url('https://source.unsplash.com/hZW3R8GtV5g/1600x1200') center/cover no-repeat;
+        linear-gradient(180deg, rgba(255,45,141,.10), rgba(11,15,25,.55)),
+        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       transform: scale(1.02);
     }
     .heroMedia .badge{
@@ -265,19 +269,19 @@
     .tag{
       display:inline-flex; align-items:center; gap:8px;
       font-size: 12px;
-      color: rgba(11,15,25,.74);
+      color: rgba(11,15,25,.78);
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(11,15,25,.02);
+      border: 1px solid rgba(255,45,141,.22);
+      background: rgba(255,45,141,.06);
       margin-bottom: 10px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .tile{ grid-column: span 4; min-height: 260px; }
     .tile .img{
       height: 148px;
-      background: #f4f6fa center/cover no-repeat;
+      background: #f7f2f6 center/cover no-repeat;
       border-bottom: 1px solid var(--line);
       position:relative;
     }
@@ -292,10 +296,11 @@
     .go{
       margin-top: 12px;
       display:inline-flex; align-items:center; gap:8px;
-      font-weight: 900;
+      font-weight: 950;
       font-size: 13px;
+      color: rgba(255,45,141,.98);
     }
-    .go:hover{ text-decoration: underline; text-decoration-color: rgba(11,15,25,.25); }
+    .go:hover{ text-decoration: underline; text-decoration-color: rgba(255,45,141,.35); }
 
     .wide{ grid-column: span 8; }
     .side{ grid-column: span 4; }
@@ -306,14 +311,15 @@
       padding: 12px 12px;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: rgba(11,15,25,.02);
+      background: rgba(255,45,141,.03);
       align-items:flex-start;
     }
     .dot{
       width: 10px; height: 10px; border-radius: 99px;
-      background: rgba(11,15,25,.25);
+      background: rgba(255,45,141,.55);
       margin-top: 7px;
       flex: 0 0 auto;
+      box-shadow: 0 0 0 5px rgba(255,45,141,.12);
     }
 
     /* FAQ */
@@ -325,7 +331,7 @@
     }
     details summary{
       cursor:pointer;
-      font-weight: 900;
+      font-weight: 950;
       list-style:none;
       outline:none;
     }
@@ -339,7 +345,7 @@
       min-width: 92px;
       font-size: 12px;
       color: rgba(11,15,25,.62);
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
@@ -349,14 +355,14 @@
     footer{
       padding: 34px 0 48px;
       border-top: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
+      background: rgba(255,255,255,.72);
     }
     .foot{
       display:flex; align-items:flex-start; justify-content:space-between; gap: 18px;
       flex-wrap:wrap;
     }
     .foot small{ color: var(--muted); display:block; margin-top: 6px; max-width: 70ch; }
-    .foot a{ text-decoration: underline; text-decoration-color: rgba(11,15,25,.25); }
+    .foot a{ text-decoration: underline; text-decoration-color: rgba(255,45,141,.35); }
 
     /* WhatsApp floating button */
     .waFloat{
@@ -451,7 +457,7 @@
         </p>
 
         <div class="heroActions">
-          <a class="btn btnDark" href="#treatments">View treatments</a>
+          <a class="btn btnAccent" href="#treatments">View treatments</a>
           <a class="btn btnWA" id="waHero" href="#">Book on WhatsApp</a>
           <a class="btn" href="#concerns">Browse skin concerns</a>
         </div>
@@ -486,7 +492,7 @@
 
       <div class="grid">
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/W1SYLkg-vbg/1200x800');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Laser</div>
             <h3>Laser Hair Removal</h3>
@@ -496,7 +502,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/SmYrqiU_5_U/1200x800');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Injectables</div>
             <h3>Injectables</h3>
@@ -506,7 +512,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/hZW3R8GtV5g/1200x800');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Facials</div>
             <h3>Facials & Skin Health</h3>
@@ -516,7 +522,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/wH97IuZG40M/1200x800');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Aesthetics</div>
             <h3>Skin Treatments</h3>
@@ -526,7 +532,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/W1SYLkg-vbg/1200x801');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1582719478170-2c3b67b3f6f7?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Laser</div>
             <h3>Tattoo Removal</h3>
@@ -536,7 +542,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://source.unsplash.com/hZW3R8GtV5g/1200x801');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="pad">
             <div class="tag">Weight Loss</div>
             <h3>Weight Loss</h3>
@@ -673,7 +679,7 @@
       <small>
         Clean, uncomplicated aesthetic care in Jersey: laser, skin treatments, injectables, facials, weight loss and hair loss support.
         <br><br>
-        Images are from Unsplash and can be used for commercial projects under the Unsplash License. 4
+        Images are from Unsplash and can be used for commercial projects under the Unsplash License.
       </small>
     </div>
     <div>
@@ -719,7 +725,7 @@
     a.setAttribute("target", "_blank");
   });
 
-  // Mobile menu
+  // Mobile menu toggle (FIXED)
   const burger = document.getElementById("burger");
   const mobileMenu = document.getElementById("mobileMenu");
   if (burger && mobileMenu){
@@ -736,4 +742,4 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
-</html>
+  </html>
