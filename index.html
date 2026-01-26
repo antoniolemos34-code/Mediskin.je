@@ -11,12 +11,30 @@
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://mediskin.je/" />
 
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mediskin.je — Aesthetics, Laser & Injectables | Jersey" />
   <meta property="og:description" content="A calm, premium clinic experience with WhatsApp-first booking." />
   <meta property="og:url" content="https://mediskin.je/" />
-  <!-- Optional: add a real share image -->
-  <!-- <meta property="og:image" content="https://mediskin.je/og.jpg" /> -->
+  <!-- Set a real share image when you have one (recommended size: 1200x630) -->
+  <meta property="og:image" content="https://mediskin.je/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mediskin.je — Aesthetics, Laser & Injectables | Jersey" />
+  <meta name="twitter:description" content="Premium, calm, results-led clinic feel. WhatsApp-first booking." />
+  <meta name="twitter:image" content="https://mediskin.je/og.jpg" />
+
+  <!-- Optional favicon (add files to your repo root) -->
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
 
   <style>
     :root{
@@ -59,6 +77,16 @@
     a{color:inherit;text-decoration:none}
     .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto;}
     :focus-visible{outline:3px solid rgba(181,139,85,.35); outline-offset:3px; border-radius:14px}
+
+    /* Skip link (a11y) */
+    .skip{
+      position:absolute; left:-999px; top:10px;
+      background:#fff; border:1px solid var(--line);
+      padding:10px 12px; border-radius:12px;
+      box-shadow: var(--shadow2);
+      z-index:999;
+    }
+    .skip:focus{left:12px}
 
     /* Topbar */
     .topbar{
@@ -551,6 +579,13 @@
     }
     .modalActions{display:flex; gap:10px; flex-wrap:wrap;}
 
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .iconBtn, .btn, .waFloat, .tile{transition:none}
+      .iconBtn:hover, .btn:hover, .waFloat:hover, .tile:hover{transform:none}
+    }
+
     /* Responsive */
     @media (max-width: 980px){
       .links{display:none}
@@ -566,12 +601,14 @@
 </head>
 
 <body>
+  <a class="skip" href="#top">Skip to content</a>
+
   <!-- Topbar -->
   <div class="topbar">
     <div class="wrap">
       <div class="row">
         <div class="left">
-          <span class="pill" id="phonePill">📞 07700 801000</span>
+          <a class="pill" id="phonePill" href="tel:+447700801000">📞 07700 801000</a>
           <a class="pill" id="emailPill" href="mailto:info@mediskin.je">✉️ info@mediskin.je</a>
         </div>
         <div class="social" aria-label="Social links">
@@ -622,7 +659,7 @@
         </div>
       </div>
 
-      <div class="mobileMenu" id="mobileMenu">
+      <div class="mobileMenu" id="mobileMenu" aria-label="Mobile menu">
         <a href="#welcome">About</a>
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
@@ -921,19 +958,19 @@
             <div class="pad">
               <div class="faqGrid" id="faqGrid">
                 <div class="qa">
-                  <button class="q" type="button"><span>Do I need a consultation first?</span><span class="chev">+</span></button>
+                  <button class="q" type="button" aria-expanded="false"><span>Do I need a consultation first?</span><span class="chev">+</span></button>
                   <div class="a">For most treatments, a consultation (or suitability check) is recommended to confirm goals, expectations and timing.</div>
                 </div>
                 <div class="qa">
-                  <button class="q" type="button"><span>How do I book?</span><span class="chev">+</span></button>
+                  <button class="q" type="button" aria-expanded="false"><span>How do I book?</span><span class="chev">+</span></button>
                   <div class="a">WhatsApp is the fastest route: send your concern + preferred day/time + any notes (photos optional).</div>
                 </div>
                 <div class="qa">
-                  <button class="q" type="button"><span>Can I send photos?</span><span class="chev">+</span></button>
+                  <button class="q" type="button" aria-expanded="false"><span>Can I send photos?</span><span class="chev">+</span></button>
                   <div class="a">Yes (optional). Photos can help guide you to the right category and set expectations before booking.</div>
                 </div>
                 <div class="qa">
-                  <button class="q" type="button"><span>Do you treat all skin tones?</span><span class="chev">+</span></button>
+                  <button class="q" type="button" aria-expanded="false"><span>Do you treat all skin tones?</span><span class="chev">+</span></button>
                   <div class="a">We aim for inclusive care. Suitability depends on the treatment type and your goals — message us and we’ll guide you.</div>
                 </div>
               </div>
@@ -976,7 +1013,7 @@
               </p>
 
               <div class="bullets" style="margin-top:14px;">
-                <div class="li"><span class="dot"></span><div><b>Phone</b><span id="phoneLine">07700 801000</span></div></div>
+                <div class="li"><span class="dot"></span><div><b>Phone</b><span><a id="phoneLine" href="tel:+447700801000">07700 801000</a></span></div></div>
                 <div class="li"><span class="dot"></span><div><b>Email</b><span><a id="emailLine" href="mailto:info@mediskin.je">info@mediskin.je</a></span></div></div>
                 <div class="li"><span class="dot"></span><div><b>Address</b><span id="addressLine">Jersey, Channel Islands</span></div></div>
                 <div class="li"><span class="dot"></span><div><b>Hours</b><span id="hoursLine">Mon–Sat: 9:00–18:00</span></div></div>
@@ -1012,6 +1049,12 @@
               <a class="btn btnWA" id="waTemplate" href="#" style="width:100%;">Book Consultation</a>
               <div style="height:10px"></div>
               <a class="btn" id="emailContactBtn" href="mailto:info@mediskin.je" style="width:100%;">Email: info@mediskin.je</a>
+
+              <noscript>
+                <p style="margin:12px 0 0; color:var(--muted); font-size:13px;">
+                  JavaScript is disabled. You can still email: <a href="mailto:info@mediskin.je">info@mediskin.je</a>.
+                </p>
+              </noscript>
             </div>
           </div>
         </div>
@@ -1069,12 +1112,14 @@
     const CONTACT = {
       brand: "Mediskin.je",
       phoneDisplay: "07700 801000",
+      phoneTelE164: "+447700801000",
       whatsappNumberE164: "+447700801000",
       email: "info@mediskin.je",
 
       addressLine: "Jersey, Channel Islands",
       hoursLine: "Mon–Sat: 9:00–18:00",
 
+      // Put real links here:
       instagramUrl: "https://www.instagram.com/",
       facebookUrl:  "https://www.facebook.com/"
     };
@@ -1084,7 +1129,7 @@
       welcome:    "https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=2000&q=80",
       aesthetics: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=2000&q=80",
       laser:      "https://images.unsplash.com/photo-1580281657527-47f249e8f10f?auto=format&fit=crop&w=2000&q=80",
-      inject:     "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=2000&q=80",
+      inject:     "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=2000&q=80"
     };
 
     const DEFAULT_MESSAGE =
@@ -1092,17 +1137,25 @@
 
     // ========= Helpers =========
     const clean = (s) => (s || "").replace(/[^\d+]/g, "");
+
+    // WhatsApp requires digits only (no +)
+    const waNumber = () => clean(CONTACT.whatsappNumberE164).replace("+", "").trim();
+
     const toWa = (msg) => {
-      const num = clean(CONTACT.whatsappNumberE164).replace("+", "");
+      const num = waNumber();
       return `https://wa.me/${num}?text=${encodeURIComponent(msg || DEFAULT_MESSAGE)}`;
     };
 
     const setLink = (id, url) => {
       const el = document.getElementById(id);
       if (!el) return;
-      el.href = url;
-      el.target = "_blank";
-      el.rel = "noopener";
+      // If user left placeholder, keep it as "#"
+      const safe = (url && url !== "https://www.instagram.com/" && url !== "https://www.facebook.com/") ? url : "#";
+      el.href = safe;
+      if (safe !== "#"){
+        el.target = "_blank";
+        el.rel = "noopener";
+      }
     };
 
     const bindWa = (id, msg) => {
@@ -1113,7 +1166,7 @@
       el.rel = "noopener";
     };
 
-    // Keeps overlay gradient + image together (your previous version lost the gradient)
+    // Keeps overlay gradient + image together
     const setBg = (el, url) => {
       if (!el) return;
       const overlay =
@@ -1130,15 +1183,23 @@
         el.style.backgroundImage = `${overlay}, url('${url}')`;
       };
       img.referrerPolicy = "no-referrer";
+      img.loading = "lazy";
       img.src = url;
     };
 
     // ========= Apply contacts =========
-    document.getElementById("phonePill").textContent = "📞 " + CONTACT.phoneDisplay;
-    document.getElementById("phoneLine").textContent = CONTACT.phoneDisplay;
+    const telHref = `tel:${clean(CONTACT.phoneTelE164)}`;
+    const phonePill = document.getElementById("phonePill");
+    if (phonePill){ phonePill.textContent = "📞 " + CONTACT.phoneDisplay; phonePill.href = telHref; }
 
-    document.getElementById("addressLine").textContent = CONTACT.addressLine;
-    document.getElementById("hoursLine").textContent = CONTACT.hoursLine;
+    const phoneLine = document.getElementById("phoneLine");
+    if (phoneLine){ phoneLine.textContent = CONTACT.phoneDisplay; phoneLine.href = telHref; }
+
+    const addressLine = document.getElementById("addressLine");
+    if (addressLine) addressLine.textContent = CONTACT.addressLine;
+
+    const hoursLine = document.getElementById("hoursLine");
+    if (hoursLine) hoursLine.textContent = CONTACT.hoursLine;
 
     ["emailPill","emailBtn","emailLine","emailApproach","emailContactBtn","modalEmail","emailFoot"].forEach(id => {
       const el = document.getElementById(id);
@@ -1191,29 +1252,67 @@
     setBg(document.getElementById("imgLaser"), IMAGES.laser);
     setBg(document.getElementById("imgInjectables"), IMAGES.inject);
 
-    // ========= Mobile menu =========
+    // ========= Mobile menu (close on outside click + ESC) =========
     const burger = document.getElementById("burger");
     const mobileMenu = document.getElementById("mobileMenu");
+
+    const closeMobile = () => {
+      if (!mobileMenu) return;
+      mobileMenu.classList.remove("open");
+      burger?.setAttribute("aria-expanded", "false");
+    };
+
     if (burger && mobileMenu){
-      burger.addEventListener("click", () => {
+      burger.addEventListener("click", (e) => {
+        e.stopPropagation();
         const open = mobileMenu.classList.toggle("open");
         burger.setAttribute("aria-expanded", open ? "true" : "false");
       });
-      mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
-      }));
+
+      document.addEventListener("click", (e) => {
+        if (!mobileMenu.classList.contains("open")) return;
+        if (e.target.closest("#mobileMenu") || e.target.closest("#burger")) return;
+        closeMobile();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobile();
+      });
+
+      mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMobile));
     }
 
-    // ========= Modal logic =========
+    // ========= Modal logic (focus trap + restore focus) =========
     const overlay = document.getElementById("modalOverlay");
     const closeBtn = document.getElementById("modalClose");
     const titleEl = document.getElementById("modalTitle");
     const descEl  = document.getElementById("modalDesc");
     const imgEl   = document.getElementById("modalImg");
     const waEl    = document.getElementById("modalWa");
+    let lastFocusEl = null;
+
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const trapFocus = (e) => {
+      if (!overlay.classList.contains("open") || e.key !== "Tab") return;
+      const focusables = overlay.querySelectorAll(focusableSelector);
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first){
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last){
+        e.preventDefault();
+        first.focus();
+      }
+    };
 
     const openModal = ({title, desc, imgKey}) => {
+      lastFocusEl = document.activeElement;
+
       titleEl.textContent = title || "Service";
       descEl.textContent  = desc  || "";
       setBg(imgEl, IMAGES[imgKey] || IMAGES.welcome);
@@ -1225,19 +1324,29 @@
 
       overlay.classList.add("open");
       overlay.setAttribute("aria-hidden", "false");
-      closeBtn.focus();
       document.body.style.overflow = "hidden";
+
+      // focus first control (close)
+      closeBtn.focus();
     };
 
     const closeModal = () => {
       overlay.classList.remove("open");
       overlay.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+
+      // restore focus
+      if (lastFocusEl && typeof lastFocusEl.focus === "function") lastFocusEl.focus();
+      lastFocusEl = null;
     };
 
     closeBtn.addEventListener("click", closeModal);
     overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.classList.contains("open")) closeModal(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && overlay.classList.contains("open")) closeModal();
+      trapFocus(e);
+    });
 
     document.querySelectorAll("[data-modal-title][data-modal-desc][data-modal-img]").forEach(el => {
       const handler = () => openModal({
@@ -1251,12 +1360,13 @@
       });
     });
 
-    // ========= FAQ accordion =========
+    // ========= FAQ accordion (aria-expanded) =========
     document.querySelectorAll(".qa .q").forEach(btn => {
       btn.addEventListener("click", () => {
         const box = btn.closest(".qa");
         const isOpen = box.classList.toggle("open");
         const chev = btn.querySelector(".chev");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
         if (chev) chev.textContent = isOpen ? "−" : "+";
       });
     });
@@ -1264,18 +1374,29 @@
     // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ========= JSON-LD (basic) =========
+    // ========= JSON-LD =========
     const ld = {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
       "name": CONTACT.brand,
       "url": "https://mediskin.je/",
-      "telephone": CONTACT.phoneDisplay,
+      "telephone": CONTACT.phoneTelE164,
       "email": CONTACT.email,
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Jersey"
-      }
+        "addressLocality": "Jersey",
+        "addressCountry": "JE"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }],
+      "sameAs": [
+        CONTACT.instagramUrl,
+        CONTACT.facebookUrl
+      ].filter(u => u && u !== "https://www.instagram.com/" && u !== "https://www.facebook.com/")
     };
     const s = document.createElement("script");
     s.type = "application/ld+json";
