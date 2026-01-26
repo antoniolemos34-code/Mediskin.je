@@ -11,7 +11,6 @@
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://mediskin.je/" />
 
-  <!-- Basic Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mediskin.je — Laser, Aesthetics, Injectables & Weight Loss | Jersey" />
   <meta property="og:description" content="Clean, uncomplicated but premium. Book instantly via WhatsApp." />
@@ -19,7 +18,6 @@
 
   <style>
     :root{
-      /* Pink + White theme */
       --bg:#ffffff;
       --ink:#0B0F19;
       --muted:#5A6476;
@@ -34,9 +32,9 @@
 
       --max: 1140px;
 
-      --accent:#FF2D8D;          /* main accent */
-      --accent2:#FF6BB7;         /* soft accent */
-      --wa:#25D366;              /* keep WhatsApp green for recognisability */
+      --accent:#FF2D8D;
+      --accent2:#FF6BB7;
+      --wa:#25D366;
 
       --glass: rgba(255,255,255,.72);
     }
@@ -55,10 +53,9 @@
     }
     a{ color:inherit; text-decoration:none; }
     .wrap{ width:min(var(--max), calc(100% - 44px)); margin:0 auto; }
-    .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-      clip:rect(0,0,0,0); white-space:nowrap; border:0;
-    }
+
+    /* Focus accessibility (melhora UX) */
+    :focus-visible{ outline: 3px solid rgba(255,45,141,.35); outline-offset: 3px; border-radius: 14px; }
 
     /* ===== Header ===== */
     header{
@@ -103,6 +100,7 @@
       cursor:pointer;
       user-select:none;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      white-space: nowrap;
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow2); }
     .btn:active{ transform: translateY(0px); box-shadow: 0 10px 26px rgba(11,15,25,.10); }
@@ -116,7 +114,7 @@
       background: var(--wa);
       color:#06130B;
       border-color: rgba(0,0,0,.08);
-      font-weight: 900;
+      font-weight: 950;
     }
     .btnGhost{
       background: transparent;
@@ -130,10 +128,14 @@
       padding: 12px 0;
       border-top: 1px solid var(--line);
       color: rgba(11,15,25,.78);
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13.5px;
     }
     .mobileMenu a:hover{ color: rgba(11,15,25,.95); }
+    .mobileMenu a#waMobile{
+      margin-top: 6px;
+      color: var(--accent);
+    }
 
     /* ===== Hero ===== */
     .hero{ padding: 48px 0 18px; }
@@ -217,14 +219,13 @@
       overflow:hidden;
       position:relative;
       min-height: 460px;
-      background: #1a0b12;
+      background: #12070d;
     }
     .heroMedia .bg{
       position:absolute; inset:0;
-      /* WORKING images.unsplash.com links (not source.unsplash.com) */
       background:
-        linear-gradient(180deg, rgba(255,45,141,.10), rgba(11,15,25,.55)),
-        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(180deg, rgba(255,45,141,.14), rgba(11,15,25,.58)),
+        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
       transform: scale(1.02);
     }
     .heroMedia .badge{
@@ -275,7 +276,7 @@
       border: 1px solid rgba(255,45,141,.22);
       background: rgba(255,45,141,.06);
       margin-bottom: 10px;
-      font-weight: 900;
+      font-weight: 950;
     }
 
     .tile{ grid-column: span 4; min-height: 260px; }
@@ -284,6 +285,7 @@
       background: #f7f2f6 center/cover no-repeat;
       border-bottom: 1px solid var(--line);
       position:relative;
+      overflow:hidden;
     }
     .tile .img:after{
       content:"";
@@ -301,6 +303,10 @@
       color: rgba(255,45,141,.98);
     }
     .go:hover{ text-decoration: underline; text-decoration-color: rgba(255,45,141,.35); }
+
+    /* Melhor micro-interação */
+    .tile:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); transition: .18s ease; }
+    .tile{ transition: .18s ease; }
 
     .wide{ grid-column: span 8; }
     .side{ grid-column: span 4; }
@@ -470,7 +476,7 @@
       </div>
 
       <div class="heroMedia" aria-label="Clinic treatment image">
-        <div class="bg" role="img" aria-label="Facial treatment"></div>
+        <div class="bg" role="img" aria-label="Aesthetic clinic"></div>
         <div class="badge">
           <strong>Mediskin.je</strong>
           <span>Laser • Skin • Injectables • Weight Loss • Professional approach</span>
@@ -492,7 +498,7 @@
 
       <div class="grid">
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="laser" aria-label="Laser treatment"></div>
           <div class="pad">
             <div class="tag">Laser</div>
             <h3>Laser Hair Removal</h3>
@@ -502,7 +508,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="injectables" aria-label="Injectables consultation"></div>
           <div class="pad">
             <div class="tag">Injectables</div>
             <h3>Injectables</h3>
@@ -512,7 +518,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="facials" aria-label="Facial treatment"></div>
           <div class="pad">
             <div class="tag">Facials</div>
             <h3>Facials & Skin Health</h3>
@@ -522,7 +528,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="skin" aria-label="Skin treatment"></div>
           <div class="pad">
             <div class="tag">Aesthetics</div>
             <h3>Skin Treatments</h3>
@@ -532,7 +538,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1582719478170-2c3b67b3f6f7?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="tattoo" aria-label="Laser tattoo removal"></div>
           <div class="pad">
             <div class="tag">Laser</div>
             <h3>Tattoo Removal</h3>
@@ -542,7 +548,7 @@
         </article>
 
         <article class="card tile">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="img" data-img="weight" aria-label="Weight loss support"></div>
           <div class="pad">
             <div class="tag">Weight Loss</div>
             <h3>Weight Loss</h3>
@@ -690,8 +696,18 @@
 
 <script>
   // ===== CONFIG =====
-  const WHATSAPP_NUMBER_E164 = "+447700801000"; // same number (07700 801000)
+  const WHATSAPP_NUMBER_E164 = "+447700801000"; // change if needed
   const DEFAULT_MESSAGE = "Hi Mediskin.je — I’d like to book a consultation. Treatment/concern: _____. Preferred day/time: _____. Thank you.";
+
+  // Stable images (clinic/aesthetics vibe). If any fails, it falls back to a gradient.
+  const IMAGE_MAP = {
+    laser:       "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1600&q=80",
+    injectables: "https://images.unsplash.com/photo-1580281657527-47f249e8f10f?auto=format&fit=crop&w=1600&q=80",
+    facials:     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80",
+    skin:        "https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=80",
+    tattoo:      "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1600&q=80",
+    weight:      "https://images.unsplash.com/photo-1556228578-4c1c79b28231?auto=format&fit=crop&w=1600&q=80",
+  };
 
   // ===== Helpers =====
   const clean = (s) => (s || "").replace(/[^\d+]/g, "");
@@ -700,13 +716,13 @@
     return `https://wa.me/${num}?text=${encodeURIComponent(msg || DEFAULT_MESSAGE)}`;
   };
 
-  // Bind buttons
+  // Bind WhatsApp buttons (direct)
   const bind = (id, msg) => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.setAttribute("href", toWa(msg));
-    el.setAttribute("rel", "noopener");
-    el.setAttribute("target", "_blank");
+    el.href = toWa(msg);
+    el.rel = "noopener";
+    el.target = "_blank";
   };
 
   bind("waTop", DEFAULT_MESSAGE);
@@ -720,12 +736,39 @@
 
   // Bind treatment-specific WhatsApp links
   document.querySelectorAll("[data-wa]").forEach(a => {
-    a.setAttribute("href", toWa(a.getAttribute("data-wa")));
-    a.setAttribute("rel", "noopener");
-    a.setAttribute("target", "_blank");
+    a.href = toWa(a.getAttribute("data-wa"));
+    a.rel = "noopener";
+    a.target = "_blank";
   });
 
-  // Mobile menu toggle (FIXED)
+  // Images: set background-image + fallback if fails
+  const setBgWithFallback = (el, url) => {
+    // nice fallback gradient
+    el.style.background =
+      "radial-gradient(900px 300px at 10% 20%, rgba(255,45,141,.18), transparent 60%)," +
+      "linear-gradient(135deg, rgba(11,15,25,.10), rgba(255,45,141,.06))";
+    if (!url) return;
+
+    const img = new Image();
+    img.onload = () => {
+      el.style.backgroundImage = `url('${url}')`;
+      el.style.backgroundSize = "cover";
+      el.style.backgroundPosition = "center";
+      el.style.backgroundRepeat = "no-repeat";
+    };
+    img.onerror = () => {
+      // keep fallback
+    };
+    img.referrerPolicy = "no-referrer";
+    img.src = url;
+  };
+
+  document.querySelectorAll(".tile .img[data-img]").forEach(div => {
+    const key = div.getAttribute("data-img");
+    setBgWithFallback(div, IMAGE_MAP[key]);
+  });
+
+  // Mobile menu toggle (fixed)
   const burger = document.getElementById("burger");
   const mobileMenu = document.getElementById("mobileMenu");
   if (burger && mobileMenu){
